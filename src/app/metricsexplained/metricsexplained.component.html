@@ -1,53 +1,41 @@
 <div class="metricsexplained">
     <h1 id="headline">FuPS Konzepte</h1>
 
-    <h2>Parallelität</h2>
-    <markdown ngPreserveWhitespaces>
-        **Parallelität** spielt in der Funktionalen-Programmierung eine wichtige Rolle im Bezug auf Effizienz, insbesondere
-        bei der Verarbeitung von großen Datenmengen.
-        
-        Des Weiteren ist es auch sehr wichtig für Fehlertoleranz und somit auch die Ausfallsicherheit eines Systems.
-        Dies liegt besonders bei Erlang im Fokus. In Erlang sind Multi-Core-Prozesse möglich. Ein Prozess spawnt eine VM
-        in einer Server Instanz und ist somit vom weiteren Kontext isoliert. Dies führt dazu, dass ein Ausfall des spezifischen
-        Prozesses, nicht zum Ausfall des gesamten Systems führt.
-
-        Ein Weiterer Punkt ist auch die Nebenläufigkeit. Dadurch ist es möglich mehrere Prozesse gleichzeitig auszuführen.
-
-        Skalierbarkeit ist hier auch wichtig. Laufzeiten können durch das Hinzufügen von weiteren Ressourcen verkürzt werden.
-
-        Um all dies sicher umsetzen zu können, spielt auch Immutability (Unveränderlichkeit) eine große Rolle. So kann garantiert werden,
-        dass ein Prozess keine Daten ändert.
-    </markdown>
-
 
     <h2>Hohe Leistungsanforderungen</h2>
     <markdown ngPreserveWhitespaces>
-        Bei hohen Leistungsanforderungen schneidet die Funktionale-Programmierung eher schlecht ab.
+        *Nebenläufigkeit* im Kontext zu hohen Leistungsanforderungen spielt eine große Rolle in der Funktionalen Programmierung, im Bezug zu Effizienz
+        eines Programms. Durch das dynamische hinzufügen oder entfernen von Ressourcen,  können Prozesse skaliert werden. Dadurch können diese schnelle ausgeführt
+        oder abgebremst werden. 
+
+        Desweiteren erlaubt die Nebenläufigkeit ein Maß an Fehlertoleranz. 
+
+        Wo ist nun der zusammenhang zur Funktionalen-Programmierung?
+
+        Dieser liegt in der *Immutability*. 
+        Da bei Nebenläufigen Prozessen mehrere Prozesse auf einem Datensatz arbeiten, ist es von hoher bedeutung, dass diese Prozesse nichts an den Daten ändern.
+        Sollte dies nämlich der Fall sein, so würden andere Prozesse die im selben Speicherbereich arbeiten mit anderen Werten rechnen.
+
+
+        **Lazy Evaluation** ...
     </markdown>
 
 
     <h2>Skalierbarkeit</h2>
     <markdown ngPreserveWhitespaces>
-        *Verteiltes Rechnen* 
-        
-        
-        "Nachrichtenübermittlung"
-        
-        "Aktorenmodell"
-        
-        "Überwachungsstrukturen"
+        *Verteiltes Rechnen* ist vor allem durch Erlang sehr beliebt geworden. 
+        Hierbei werden auf verschiedenen Host's Erlangs Runtimes installiert, welche dann VM's für die Prozesse spawnen, welche dann mit den anderen
+        VM's auf anderen Systemen kommunizieren, um einen Prozess auszuführen. Einen Host oder Server nennt man dann Node. Die Prozesse können
+        sowohl intern, als auch extern mit anderen Prozessen auf anderen Host's kommunizieren.
+        Die Prozesse finden sich über einen *pid* (Processidentifier), welche über eine interne DNS geroutet werden.
+        Der zusammenhang zum FuPS liegt hier in der *Immutability* durch die Nebenläufigkeit.      
+
     </markdown>
     
 
     <h2>Nebenläufigkeitsanforderungen</h2>
-    <markdown ngPreserveWhitespaces>
-        "Leichte Prozesse"
-        
-        "Nachrichtenübermittlung"
-        
-        "Software-Transaction-Speicher (STM)"
-        
-        "Sperrfreie Datenstrukturen"
+    <markdown ngPreserveWhitespaces>                
+        **Immutable Datenstrukturen**
     </markdown>
   
     
@@ -65,14 +53,6 @@
     </markdown>
 
 
-    <h2>RT-Anwendungen</h2>
-    <markdown ngPreserveWhitespaces>
-        "Reactive Programming"
-        
-        "FRP"
-    </markdown>
-
-
     <h2>Datenintensiv</h2>
     <markdown ngPreserveWhitespaces>
         "MapReduce"
@@ -81,7 +61,7 @@
         
         "Lazy Evaluation"
         
-        "Parallelität"
+        "Nebenläufigkeit"
     </markdown>
 
 
