@@ -3,8 +3,8 @@
         <h1>Funktionale-Konzepte</h1><br>
     </div>
     <div class="selectionoptions">
-        <form action="POST" class="selectionform" *ngFor="let value of listValues">
-            <button>{{ value }}</button>
+        <form action="" class="selectionform" *ngFor="let value of listValues; let buttonstate of buttonState; let i = index">
+            <button [class.selected]="selected" (click)="toggleSelected(i)">{{ value }}</button>
         </form>
     </div>  
 </div>

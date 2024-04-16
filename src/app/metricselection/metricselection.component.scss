@@ -1,49 +1,61 @@
-$button-width: 200px; 
-$button-height: 40px; 
-$button-color: #f0f0f0; 
-$button-hover-color: #dcdcdc; 
-$button-padding: 20px; 
-
+// Make Root div flex to make child divs share one row.
 .selectiondiv {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+// Make both child divs have an equal width such that they share a row.
+.selectionheadline, .selectionoptions {
+  flex: 1;
 }
 
 .selectionheadline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.selectionheadline, form {
-    width: 45%;
-}
-
-form  {
+  // Ausrichtung eines divs
   display: flex;
   justify-content: center;
   align-items: center;
-  width: $button-width;
-  height: $button-height;
-  background-color: $button-color;
-  color: #333; 
-  text-align: center;
-  line-height: $button-height;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-right: $button-padding; 
 
-  &:last-child {
-    margin-right: 0; 
-  }
+  padding-right: 10px;
+}
+
+.selectionoptions {
+  // Ausrichtung eines divs
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+
+}
+
+form {
+  // Für Padding zwischen den Buttons
+  padding: 2px;
+}
+
+
+// Buttondimensionen, immer hier ändern.
+$buttonwidth: 225px;
+$buttonheight: 50px;
+
+$buttoncornerradius: 100px;
+
+button {
+  // Designs für die buttons selbst
+  background-color: whitesmoke;
+
+  // Dimensionen der Buttons
+  width: $buttonwidth;
+  height: $buttonheight;
+
+  border-radius: $buttoncornerradius;
 
   &:hover {
-    background-color: $button-hover-color;
+    background-color: aquamarine;
+    cursor: pointer;
   }
+}
 
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.selected {
+  background-color: rgb(40, 94, 76);
 }
