@@ -21,8 +21,10 @@ $button-padding: 20px;
     width: 45%;
 }
 
-form > input {
-  display: inline-block;
+form  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: $button-width;
   height: $button-height;
   background-color: $button-color;

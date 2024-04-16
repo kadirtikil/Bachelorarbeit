@@ -2,15 +2,9 @@
     <div class="selectionheadline">
         <h1>Funktionale-Konzepte</h1><br>
     </div>
-    <form action="POST" class="selectionform">
-        <input type="button" value="Verteiltes Rechnen"><br>
-        <input type="button" value="Nebenläufigkeit"><br>
-        <input type="button" value="Wartbar- und Erweiterbarkeit"><br>
-        <input type="button" value="Datenintensiv"><br>
-        <input type="button" value="Testbarkeit"><br>
-        <input type="button" value="Sicherheitsanforderungen"><br>
-        <input type="button" value="Geringe Latenz"><br>
-        <input type="button" value="Fehlertoleranz"><br>
-
-    </form>
+    <div class="selectionoptions">
+        <form action="POST" class="selectionform" *ngFor="let value of listValues">
+            <button>{{ value }}</button>
+        </form>
+    </div>  
 </div>
