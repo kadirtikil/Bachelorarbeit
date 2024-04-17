@@ -2,6 +2,13 @@ import { Component, Inject, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { VertRechComponent } from '../vert-rech/vert-rech.component';
+import { ConcurrencyComponent } from '../concurrency/concurrency.component';
+import { MaintenanceComponent } from '../maintenance/maintenance.component';
+import { DataintensiveComponent } from '../dataintensive/dataintensive.component';
+import { TestbarkeitComponent } from '../testbarkeit/testbarkeit.component';
+import { SecurityComponent } from '../security/security.component';
+import { LatenzComponent } from '../latenz/latenz.component';
+import { FehlertoleranzComponent } from '../fehlertoleranz/fehlertoleranz.component';
 
 @Component({
   selector: 'app-metricselection',
@@ -27,42 +34,41 @@ export class MetricselectionComponent {
   // Dialog für Verteiltes Rechnen
   openVR() {
     event?.preventDefault();
-    console.log("Verteiltes Rechnen");
     this.dialog.open(VertRechComponent);
   }
   // Dialog für Nebenläufigkeit
   openConc() {
     event?.preventDefault();
-    console.log("Nebenläufigkeit");
+    this.dialog.open(ConcurrencyComponent);
   }
   // Dialog für Wartbarkeit und Erweiterbarkeit
   openWE() {
     event?.preventDefault();
-    console.log("Wartbarkeit etc.");
+    this.dialog.open(MaintenanceComponent);
   }
   // Dialog für Datenintensiv
   openD() {
     event?.preventDefault();
-    console.log("Datenintensiv");
+    this.dialog.open(DataintensiveComponent);
   }
   // Dialog für Testbarkeit
   openTest() {
     event?.preventDefault();
-    console.log("Testbarkeit");
+    this.dialog.open(TestbarkeitComponent);
   }
   // Dialog für Sicherheit
   openSec() {
     event?.preventDefault();
-    console.log("Sicherheit");
+    this.dialog.open(SecurityComponent);
   }
   // Dialog für Geringe Latenz
   openLL() {
     event?.preventDefault();
-    console.log("Geringe Latenz");
+    this.dialog.open(LatenzComponent);
   }
   // Dialog für Fehlertoleranz
   openFault() {
     event?.preventDefault();
-    console.log("Fehlertoleranz");
+    this.dialog.open(FehlertoleranzComponent);
   }
 }
