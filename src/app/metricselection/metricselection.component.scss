@@ -3,6 +3,8 @@
   display: flex;
 
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  padding-top: 10px;
 }
 
 // Make both child divs have an equal width such that they share a row.
@@ -26,6 +28,12 @@
   align-items: left;
   flex-direction: column;
 
+}
+
+.selectionform {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
 }
 
 form {

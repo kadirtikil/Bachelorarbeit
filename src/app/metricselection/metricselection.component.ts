@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { VertRechComponent } from '../vert-rech/vert-rech.component';
 
 @Component({
   selector: 'app-metricselection',
@@ -19,23 +21,48 @@ export class MetricselectionComponent {
     "Fehlertoleranz",
   ]
 
-  // selected um zu markieren ob ein button geklickt wurde
-  selected: boolean = false;
 
-  // Anzahl buttons um dann den geklickten button zu markieren
-  buttonState: boolean[] = [];
-  constructor() {
-    const buttonamount = this.listValues.length;
+  constructor(@Inject(MatDialog) public dialog: MatDialog) { }
 
-    for(let i = 0; i < buttonamount; i++) {
-      this.buttonState.push(false);
-    }
-  }
-
-
-  toggleSelected(index: number) {
+  // Dialog für Verteiltes Rechnen
+  openVR() {
     event?.preventDefault();
-    this.buttonState[index] = !this.buttonState[index];
-    console.log(this.buttonState);
+    console.log("Verteiltes Rechnen");
+    this.dialog.open(VertRechComponent);
+  }
+  // Dialog für Nebenläufigkeit
+  openConc() {
+    event?.preventDefault();
+    console.log("Nebenläufigkeit");
+  }
+  // Dialog für Wartbarkeit und Erweiterbarkeit
+  openWE() {
+    event?.preventDefault();
+    console.log("Wartbarkeit etc.");
+  }
+  // Dialog für Datenintensiv
+  openD() {
+    event?.preventDefault();
+    console.log("Datenintensiv");
+  }
+  // Dialog für Testbarkeit
+  openTest() {
+    event?.preventDefault();
+    console.log("Testbarkeit");
+  }
+  // Dialog für Sicherheit
+  openSec() {
+    event?.preventDefault();
+    console.log("Sicherheit");
+  }
+  // Dialog für Geringe Latenz
+  openLL() {
+    event?.preventDefault();
+    console.log("Geringe Latenz");
+  }
+  // Dialog für Fehlertoleranz
+  openFault() {
+    event?.preventDefault();
+    console.log("Fehlertoleranz");
   }
 }

@@ -3,8 +3,15 @@
         <h1>Funktionale-Konzepte</h1><br>
     </div>
     <div class="selectionoptions">
-        <form action="" class="selectionform" *ngFor="let value of listValues; let buttonstate of buttonState; let i = index">
-            <button [class.selected]="selected" (click)="toggleSelected(i)">{{ value }}</button>
+        <form action="" class="selectionform" >
+            <button (click)="openVR()">{{ listValues[0] }}</button>
+            <button (click)="openConc()">{{ listValues[1] }}</button>
+            <button (click)="openWE()">{{ listValues[2] }}</button>
+            <button (click)="openD()">{{ listValues[3] }}</button>
+            <button (click)="openTest()">{{ listValues[4] }}</button>
+            <button (click)="openSec()">{{ listValues[5] }}</button>
+            <button (click)="openLL()">{{ listValues[6] }}</button>
+            <button (click)="openFault()">{{ listValues[7] }}</button>
         </form>
     </div>  
 </div>
