@@ -6,10 +6,11 @@
         <button (click)="addTask()">Add</button>
     </form>
     <br>
-    <div class="displaytasks">
-        <p>{{ tasks }}</p>
-        <p>Submit diese</p>
+    <div class="displaytasks" *ngFor="let task of tasks">
+        <p>{{ task.name }}</p>
+        <p>{{ task.duration }}</p>
     </div>
+    <button (click)="submitTasks()">Submit Tasks</button>
     <br>
     <div class="finishedscheduling">
         <p>Hier kommt das fertige Ergebnis hin</p>
