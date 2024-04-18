@@ -1,6 +1,9 @@
 import { Component, Inject, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
+
 import { VertRechComponent } from '../vert-rech/vert-rech.component';
 import { ConcurrencyComponent } from '../concurrency/concurrency.component';
 import { MaintenanceComponent } from '../maintenance/maintenance.component';
@@ -13,7 +16,7 @@ import { FehlertoleranzComponent } from '../fehlertoleranz/fehlertoleranz.compon
 @Component({
   selector: 'app-metricselection',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatDialogModule, ],
   templateUrl: './metricselection.component.html',
   styleUrl: './metricselection.component.scss'
 })
