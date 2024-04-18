@@ -1,0 +1,51 @@
+{
+    "Hohe Leistungsanforderungen": {
+        "name": "Hohe Leistungsanforderungen",
+        "Konzepte": ["Parallelität", "Nebenläufigkeit", "Immutable Structures"]
+    },
+    
+    "Skalierbarkeit": {
+        "name": "Skalierbarkeit",
+        "Konzepte": ["Verteiltes Rechnen", "Nachrichtenübermittlung", "Aktorenmodell", "Überwachungsstrukturen"]
+    },
+
+    "Nebenläufigkeitsanforderungen": {
+        "name":"Nebenläufigkeitsanforderungen",
+        "Konzepte": ["Leichte Prozesse", "Nachrichtenübermittlung", "Software-Transaction-Speicher (STM)", "Sperrfreie Datenstrukturen"]
+    },
+
+    "Wartbar- und Erweiterbarkeit": {
+        "name": "Wartbar- und Erweiterbarkeit",
+        "Konzepte": ["Higher-Order-Funtctions", "Immutability", "Pure Functions", "ADT", "Pattern-Matching"]
+    },
+
+    "RT-Anwendungen": {
+        "name": "RT-Anwendungen",
+        "Konzepte": ["Reactive Programming", "FRP"]
+    },
+
+    "Datenintensiv": {
+        "name": "Datenintensiv",
+        "Konzepte": ["MapReduce", "Higher-Order-Funtctions", "Lazy Evaluation", "Parallelität"]
+    },
+
+    "Testbarkeit": {
+        "name": "Testbarkeit",
+        "Konzepte": ["Pure Functions", "Mocking und Dependency-Injection"]
+    },
+
+    "Sicherheitsanforderungen": {
+        "name": "Sicherheitsanforderungen",
+        "Konzepte": ["Immutability", "Immutable Structures","Pure Functions", "Typesafety"]
+    },
+
+    "Geringe Latenz": {
+        "name": "Geringe Latenz",
+        "Konzepte": ["Leightweight Processes", "Asynchronous Programming", "Reactive Streams"]
+    },
+
+    "Fehlertoleranz": {
+        "name": "Fehlertoleranz",
+        "Konzepte": ["Immutability", "Pure Functions", "Monitoring", "Fehlerbehandlungsmonaden"]
+    }
+}

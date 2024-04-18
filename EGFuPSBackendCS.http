@@ -1,0 +1,6 @@
+@EGFuPSBackendCS_HostAddress = http://localhost:5134
+
+GET {{EGFuPSBackendCS_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
