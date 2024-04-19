@@ -30,3 +30,7 @@ C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\ref
 C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGFuPSBackendCS.pdb
 C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGFuPSBackendCS.genruntimeconfig.cache
 C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\ref\EGFuPSBackendCS.dll
+C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGFuPSBackendCS.sourcelink.json
+C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGFuPSBackendCS.csproj.AssemblyReference.cache
+C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGFuPSBa.9EE08674.Up2Date

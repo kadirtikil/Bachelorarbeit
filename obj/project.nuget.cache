@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xuFwJCuStnhKLLD8fOz3qS47juZuWRTWoPobuw9Fq0ysEsgtwiH60uYLlOlBuxpyczfY46tJ1kxU4Dv5hELcKg==",
+  "dgSpecHash": "af8CFqyQyA959S0sEla64Oql0w7xdkT1mqOLxOZ37FDZU2pAAA5QsnykfYfFB4LpoHpdkQ3WaOXEQMMk5lL6Wg==",
   "success": true,
   "projectFilePath": "C:\\Users\\kadir\\source\\repos\\EGFuPSBackendCS\\EGFuPSBackendCS\\EGFuPSBackendCS.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\kadir\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

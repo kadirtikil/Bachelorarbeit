@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
 
 namespace EGFuPSBackendCS.Controllers
 {
@@ -9,12 +12,27 @@ namespace EGFuPSBackendCS.Controllers
             return View();
         }
 
-        [HttpGet("taskScheduler")]
-        public IActionResult taskScheduler()
+        [HttpPost("taskScheduler")]
+        public async Task<IActionResult> taskScheduler()
         {
-            return Ok(new { message = "Connection successful" });
+            // Read the request body stream
+            using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
+            {
+                string requestBody = await reader.ReadToEndAsync();
+
+                return Ok(new { message = requestBody });
+            }
         }
 
+        public IActionResult functionalTaskScheduler()
+        {
+            return Ok(new { message = "Hello" });
+        }
 
+    }
+    public class Task
+    {
+        public string name { get; set; }
+        public string duration { get; set; }
     }
 }
