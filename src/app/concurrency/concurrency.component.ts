@@ -4,6 +4,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialogContent } from '@angular/material/dialog';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { TaskschedulerserviceService } from '../taskschedulerservice.service';
+
 @Component({
   selector: 'app-concurrency',
   standalone: true,
@@ -33,9 +35,15 @@ export class ConcurrencyComponent {
     console.log(this.tasks.length);
   }
 
+  constructor(private schedulerservice: TaskschedulerserviceService) {}
+
   submitTasks(): void {
     event?.preventDefault();
+
+    const jsonifiedtasks = JSON.stringify(this.tasks);
     // http stuff to send the data to the backend for the algorithm
+    this.schedulerservice.taskScheduler(jsonifiedtasks)
+      .subscribe((response) => console.log(response));
   }
 
 }
