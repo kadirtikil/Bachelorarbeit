@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.Json;
 
 namespace EGFuPSBackendCS.Controllers
 {
@@ -15,24 +16,45 @@ namespace EGFuPSBackendCS.Controllers
         [HttpPost("taskScheduler")]
         public async Task<IActionResult> taskScheduler()
         {
-            // Read the request body stream
             using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             {
                 string requestBody = await reader.ReadToEndAsync();
 
-                return Ok(new { message = requestBody });
+                var objects = JArray.Parse(requestBody);
+
+                var clientsTasks = new List<Task>();
+
+                foreach (JObject obj in objects)
+                {
+                    string name = obj["name"].ToString();
+                    int duration = obj["duration"]?.ToObject<int>() ?? 1; // Default to 1 if duration is missing or invalid
+
+                    clientsTasks.Add(new Task(name: name, duration: duration));
+                }
+
+                // Now you can work with the tasks in the clientsTasks list as needed
+
+                return Ok(new { message = functionalTaskScheduler(clientsTasks)});
             }
         }
 
-        public IActionResult functionalTaskScheduler()
+        public List<Task> functionalTaskScheduler(List<Task> tasks)
         {
-            return Ok(new { message = "Hello" });
+            var sortedTasks = tasks.OrderBy(t => t.Duration);
+            return sortedTasks.ToList();
         }
 
     }
+
+    // Erstellung eine Task Objekts. Die Objekte werden dann gescheduled.
     public class Task
     {
-        public string name { get; set; }
-        public string duration { get; set; }
+        public string Name { get; set; }
+        public int Duration { get; set; }
+
+        public Task(string name, int duration) {
+            Name = name;
+            Duration = duration;
+        }
     }
 }
