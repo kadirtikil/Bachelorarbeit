@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel;
 using System.Text;
 using System.Text.Json;
 
@@ -13,6 +14,7 @@ namespace EGFuPSBackendCS.Controllers
             return View();
         }
 
+        // Function for the Taskscheduler.
         [HttpPost("taskScheduler")]
         public async Task<IActionResult> taskScheduler()
         {
@@ -44,9 +46,28 @@ namespace EGFuPSBackendCS.Controllers
             return sortedTasks.ToList();
         }
 
+
+        // Function for message passing to illustrate processes distributed systems
+        [HttpPost("distributedSystems")]
+        public async void distributedSystems()
+        {
+            using(StreamReader reader = new StreamReader (Request.Body, Encoding.UTF8)){
+                string requestBody = await reader.ReadToEndAsync();
+
+                Console.WriteLine(requestBody);
+            }
+        }
+
+        public void sendMessage( string sender, string receiver, string message ) { 
+            
+        }
     }
 
-    // Erstellung eine Task Objekts. Die Objekte werden dann gescheduled.
+
+
+    // Classes for the functions
+
+    // Task objects for task scheduling
     public class Task
     {
         public string Name { get; set; }
@@ -57,4 +78,18 @@ namespace EGFuPSBackendCS.Controllers
             Duration = duration;
         }
     }
+
+    // Message class for message passing. used for distributed systems.
+    public class Message
+    {
+        public string Pid { get; set; }
+        public string Content { get; set; }
+
+        public Message(string pid, string content)
+        {
+            Pid = pid;
+            Content = content;
+        }
+    }
+
 }
