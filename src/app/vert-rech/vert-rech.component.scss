@@ -1,3 +1,21 @@
+.root {
+    padding: 10px;
+}
+
 .headline {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row *:not(:last-child) {
+    padding: 10px;
+    margin: 10px;
+}
+
+

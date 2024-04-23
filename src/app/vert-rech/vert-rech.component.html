@@ -1,6 +1,31 @@
 <div class="root">
     <h1 class="headline">Verteiltes Rechnen</h1>
-    <p class="zeug">
-        Hier wird eine Abstraktion vom Message passing in Erlang gemacht.
-    </p>
+    <markdown ngPreserveWhitespaces>
+        Hier wird eine Abstraktion vom Message passing in Erlang gemacht. 
+        Beim Messagepassing in Erlang ist es wichtig, dass die Prozesse miteinander kommunizieren können, 
+        um synchron zu bleiben. Die Messages werden hierbei durch das Pattern Matching aneinander übertragen.
+        Des weiteren muss der Sender nicht auf eine Antwort vom Empfänger warten. 
+    
+        Wenn ein Prozess eine Nachricht erhält, vergleicht dieser die empfangene Nachricht, mit dem definiertem Pattern im Empfangsblock. 
+        Wenn dieser zum definierten Muster passt, wird der entsprechende Codeblock ausgeführt. 
+        Wenn nicht, wartet der Prozess bis eine passende Nachricht eintrifft. 
+
+        Das Pattern Matching ermöglicht es in Erlang, Nachrichten in einer klaren art und weise zu handhaben 
+        wodurch es möglich ist, eine klare Struktur im Code zu haben, welcher einfach nachvollziehbar ist. 
+        Dieser funktionale Ansatz ist Grund für die Zuverlässigkeit und Fehlertoleranz in Erlang. 
+    </markdown>
+    <form action="" [formGroup]="dsForm" class="vsdataform">
+        <div class="row">
+            <label for="pid1">Prozess</label>
+            <input formControlName="pid" id="pid1" type="text" placeholder="Pid">
+            <input formControlName="message" type="text" placeholder="Message">
+            <button id="addButton" (click)="addMessages()">Add</button>
+        </div>
+        <button (click)="submitMessages()">Submit</button>
+    </form>
+    <div class="closing">
+        <mat-dialog-actions>
+            <button mat-button mat-dialog-close="">Schließen</button>
+        </mat-dialog-actions>
+    </div>
 </div>

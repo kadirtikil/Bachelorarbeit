@@ -32,7 +32,6 @@ export class ConcurrencyComponent {
         this.tasks.push({ name: name.toString(), duration: duration.toString() });
     }
 
-    console.log(this.tasks.length);
   }
 
   constructor(private schedulerservice: TaskschedulerserviceService) {}
