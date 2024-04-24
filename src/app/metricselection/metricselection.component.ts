@@ -25,7 +25,6 @@ export class MetricselectionComponent {
     "Nebenläufigkeit",
     "Wartbar- und Erweiterbarkeit",
     "Datenintensiv",
-    "Testbarkeit",
     "Sicherheitsanforderungen",
     "Geringe Latenz",
     "Fehlertoleranz",
