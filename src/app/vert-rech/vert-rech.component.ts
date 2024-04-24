@@ -46,6 +46,8 @@ export class VertRechComponent {
 
     const jsonifiedMessages = JSON.stringify(this.pidMessages);
 
+    console.log(jsonifiedMessages);
+
     this.http.distributedSystem(jsonifiedMessages)
       .subscribe((response) => { console.log(response); });
   }

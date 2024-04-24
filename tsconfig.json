@@ -2,6 +2,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@ng-doc/generated": [
+        "./ng-doc/EGFuPSFrontend/index.ts"
+      ],
+      "@ng-doc/generated/*": [
+        "./ng-doc/EGFuPSFrontend/*"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
