@@ -7,10 +7,45 @@
         Im folgenden ist ein Beispiel, welches imperativ und danach funktional programmiert wurde.
 
         **Imperativ** 
+        ```
+        class ShoppingCart:
+            def __init__(self):
+                self.items = []
 
+            def add_item(self, item, price):
+                self.items.append((item, price))
+
+            def calculate_total(self):
+                total = 0
+                for item, price in self.items:
+                    total += price
+                return total
+
+
+        cart = ShoppingCart()
+        cart.add_item("Apple", 1.50)
+        cart.add_item("Banana", 0.75)
+        total_price = cart.calculate_total()
+        print("Total price:", total_price)
+
+        ```
 
         **Funktional** 
-        
+
+        ```
+        def add_item(cart, item, price):
+            return cart + [(item, price)]
+
+        def calculate_total(cart):
+            return sum(price for _, price in cart)
+
+        cart = []
+        cart = add_item(cart, "Apple", 1.50)
+        cart = add_item(cart, "Banana", 0.75)
+        total_price = calculate_total(cart)
+        print("Total price:", total_price)
+
+        ```
         Fokus auf:
         - Simple struktur
         - immutability
