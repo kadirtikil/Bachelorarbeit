@@ -1,15 +1,74 @@
 <div class="root">
     <h1 class="headline">Datenintesive Operationen</h1>
     <markdown ngPreserveWhitespaces>
-        Map-Reduce ist ein funktionales Konzept, um mit großen Datenmengen zu arbeiten. 
-        Hierbei werden Daten nur ausgelesen und nicht verändert, sodass Nebenläufige ausführungen auf
-        der Datenmenge möglich sind.
+        ***The Holy Trinity Of Functional-Programming, Map-Filter-Reduce*** 
+
+        **Map**
+
+        Die map-Funktion wird verwendet, um eine Operation auf jedes Element einer Liste oder einer Datenstruktur 
+        anzuwenden und eine neue Liste mit den Ergebnissen dieser Operation zu erstellen. 
+
+        Es transformiert jedes Element nach den angegebenen Regeln, ohne die Originaldaten zu ändern. 
+
+
+        *Beispiel:*
+
+        Betone die wichtige Rolle von map bei der Transformation von Daten und der Erzeugung neuer Datenstrukturen.        
+        
+        Wenn man nun einen Array an Werten hat, kann man diese Werte mit Map bearbeiten. Jedoch werden diese nicht geändert, 
+
+        sondern die veränderte Form wird in das Ergebnis übernommen. => Immutability.
+        ```
+            const values = ["  Potato ", " Apple   ", " Watermelon   "];
+
+            const result = values.map((x) => x.trim());
+
+            => result = ["Potato", "Apple", "Watermelon"];
+        ```
+        Hier werden zunächst alle Elemente im Array auf Blankspaces untersucht, die dann entfernt werden. 
+
+        Man merke: Map geht über JEDES Element im Array. Kein Element wird übersprungen.
+
+        Wo kommt hier die Funktionale-Programmierung ins Spiel?
+
         
 
-        ```
-            let temp = 5;
-        ```
+
+
+
+        **Filter**
+
+        Die filter-Funktion wird verwendet, um Elemente aus einer Liste auszuwählen, die eine bestimmte Bedingung erfüllen, und eine neue Liste mit diesen Elementen zurückzugeben. 
+        
+        Sie ermöglicht es, Daten nach bestimmten Kriterien zu filtern, ohne die Daten selbst zu ändern.
+        
+        *Beispiel:*
+
+        Beschreibe, wie filter verwendet werden kann, 
+        
+        um nur die Elemente zu behalten, die bestimmte Eigenschaften haben oder bestimmte Bedingungen erfüllen
+
+
+
+
+        **Reduce**
+
+        Die reduce-Funktion wird verwendet, um eine Liste von Werten auf einen einzigen Wert zu reduzieren, indem eine kumulative Operation auf die Elemente angewendet wird. 
+        
+        Sie kann verwendet werden, um Summen zu berechnen, Werte zu aggregieren oder komplexe Operationen auf Listen durchzuführen. 
+        
+        *Beispiel:*
+
+        Erkläre, wie reduce 
+        
+        dazu beiträgt, komplexe Datenstrukturen zu vereinfachen und nützliche Ergebnisse zu erzielen, indem sie alle Elemente einer Liste zusammenführt.
+        
+        
+
         Abstraktion für Map Reduce
         immutability, higher-order functions
     </markdown>
+    <div class="interactivemfr">
+
+    </div>
 </div>
