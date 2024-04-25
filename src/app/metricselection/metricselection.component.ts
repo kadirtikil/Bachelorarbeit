@@ -1,7 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
 import { VertRechComponent } from '../vert-rech/vert-rech.component';
@@ -12,6 +12,8 @@ import { TestbarkeitComponent } from '../testbarkeit/testbarkeit.component';
 import { SecurityComponent } from '../security/security.component';
 import { LatenzComponent } from '../latenz/latenz.component';
 import { FehlertoleranzComponent } from '../fehlertoleranz/fehlertoleranz.component';
+import { DialogConfig } from '@angular/cdk/dialog';
+import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-metricselection',
@@ -31,46 +33,52 @@ export class MetricselectionComponent {
   ]
 
 
-  constructor(@Inject(MatDialog) public dialog: MatDialog) { }
+  constructor(@Inject(MatDialog) private dialog: MatDialog) { }
+
+
+  dialogConfig: MatDialogConfig = {
+    maxHeight: '90vh',
+    maxWidth: '80vh',
+};
 
   // Dialog für Verteiltes Rechnen
   openVR() {
     event?.preventDefault();
-    this.dialog.open(VertRechComponent);
+    this.dialog.open(VertRechComponent, this.dialogConfig);
   }
   // Dialog für Nebenläufigkeit
   openConc() {
     event?.preventDefault();
-    this.dialog.open(ConcurrencyComponent);
+    this.dialog.open(ConcurrencyComponent, this.dialogConfig);
   }
   // Dialog für Wartbarkeit und Erweiterbarkeit
   openWE() {
     event?.preventDefault();
-    this.dialog.open(MaintenanceComponent);
+    this.dialog.open(MaintenanceComponent, this.dialogConfig);
   }
   // Dialog für Datenintensiv
   openD() {
     event?.preventDefault();
-    this.dialog.open(DataintensiveComponent);
+    this.dialog.open(DataintensiveComponent, this.dialogConfig);
   }
   // Dialog für Testbarkeit
   openTest() {
     event?.preventDefault();
-    this.dialog.open(TestbarkeitComponent);
+    this.dialog.open(TestbarkeitComponent, this.dialogConfig);
   }
   // Dialog für Sicherheit
   openSec() {
     event?.preventDefault();
-    this.dialog.open(SecurityComponent);
+    this.dialog.open(SecurityComponent, this.dialogConfig);
   }
   // Dialog für Geringe Latenz
   openLL() {
     event?.preventDefault();
-    this.dialog.open(LatenzComponent);
+    this.dialog.open(LatenzComponent, this.dialogConfig);
   }
   // Dialog für Fehlertoleranz
   openFault() {
     event?.preventDefault();
-    this.dialog.open(FehlertoleranzComponent);
+    this.dialog.open(FehlertoleranzComponent, this.dialogConfig);
   }
 }
