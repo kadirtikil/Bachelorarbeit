@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialogContent } from '@angular/material/dialog';
+
+
+import { MarkdownModule } from 'ngx-markdown';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { TaskschedulerserviceService } from '../taskschedulerservice.service';
@@ -9,7 +13,7 @@ import { TaskschedulerserviceService } from '../taskschedulerservice.service';
 @Component({
   selector: 'app-concurrency',
   standalone: true,
-  imports: [MatDialogModule, MatDialogContent, ReactiveFormsModule, CommonModule ],
+  imports: [MatDialogModule, MatDialogContent, ReactiveFormsModule, CommonModule, MarkdownModule ],
   templateUrl: './concurrency.component.html',
   styleUrl: './concurrency.component.scss'
 })
