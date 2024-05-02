@@ -1,9 +1,9 @@
 <div class="root">
     <h1 class="headline">Datenintesive Operationen</h1>
     <markdown class="markdown" ngPreserveWhitespaces>
-        ***The Holy Trinity Of Functional-Programming, Map-Filter-Reduce*** 
+        ## The Holy Trinity Of Functional-Programming, Map-Filter-Reduce 
 
-        **Map**
+        ### **Map**
 
         Die map-Funktion wird verwendet, um eine Operation auf jedes Element einer Liste oder einer Datenstruktur 
         anzuwenden und eine neue Liste mit den Ergebnissen dieser Operation zu erstellen. 
@@ -53,7 +53,7 @@
 
 
 
-        **Filter**
+        ### **Filter**
 
         Die filter-Funktion wird verwendet, um Elemente aus einer Liste auszuwählen, die eine bestimmte Bedingung erfüllen, und eine neue Liste mit diesen Elementen zurückzugeben. 
         
@@ -81,24 +81,26 @@
 
 
 
-        **Reduce**
+        ### **Reduce**
 
         Die reduce-Funktion wird verwendet, um eine Liste von Werten auf einen einzigen Wert zu reduzieren, indem eine kumulative Operation auf die Elemente angewendet wird. 
         
         Sie kann verwendet werden, um Summen zu berechnen, Werte zu aggregieren oder komplexe Operationen auf Listen durchzuführen. 
         
+        So wird am Ende nur ein Wert aus der Datenmenge gefolgert.
+        
         *Beispiel:*
 
-        Erkläre, wie reduce 
-        
-        dazu beiträgt, komplexe Datenstrukturen zu vereinfachen und nützliche Ergebnisse zu erzielen, indem sie alle Elemente einer Liste zusammenführt.
-        
-        
+        ```
+        const values = [1, 2, 3, 4];
 
-        Abstraktion für Map Reduce
-        immutability, higher-order functions
+        const result = values.reduce((acc, curr) => acc + curr, initialVal);
+
+        => resulte = 10;
+        ```
     </markdown>
     <div class="interactivemfr">
-
+        Bestes case wäre eine animation für die darstellung, wie sich map filter reduce auf eine Datenmenge auswirkt. 
+        Wie es so zu sagen vereinfacht oder verkleinert wird.
     </div>
 </div>
