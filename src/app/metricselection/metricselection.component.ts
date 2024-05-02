@@ -11,8 +11,7 @@ import { DataintensiveComponent } from '../dataintensive/dataintensive.component
 import { TestbarkeitComponent } from '../testbarkeit/testbarkeit.component';
 import { SecurityComponent } from '../security/security.component';
 import { FehlertoleranzComponent } from '../fehlertoleranz/fehlertoleranz.component';
-import { DialogConfig } from '@angular/cdk/dialog';
-import { ScrollStrategyOptions } from '@angular/cdk/overlay';
+import { FunctionalConceptsExplainationComponent } from '../functional-concepts-explaination/functional-concepts-explaination.component';
 
 @Component({
   selector: 'app-metricselection',
@@ -39,6 +38,40 @@ export class MetricselectionComponent {
     maxHeight: '90vh',
     maxWidth: '80vh',
 };
+
+  // Dialog für Resusable Template. Erklärt die Oberbegriffe
+  openExplanationPF(headline: any, description: any){
+    event?.preventDefault();
+    this.dialogConfig.data={headline: headline, description: description};
+    this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
+  }
+  openExplanationHOF(headline: any, description: any){
+    event?.preventDefault();
+    this.dialogConfig.data={headline: headline, description: description};
+    this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
+  }
+  openExplanationImm(headline: any, description: any){
+    event?.preventDefault();
+    this.dialogConfig.data={headline: headline, description: description};
+    this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
+  }
+  openExplanationMon(headline: any, description: any){
+    event?.preventDefault();
+    this.dialogConfig.data={headline: headline, description: description};
+    this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
+  }
+  openExplanationPM(headline: any, description: any){
+    event?.preventDefault();
+    this.dialogConfig.data={headline: headline, description: description};
+    this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
+  }
+  openExplanationLE(headline: any, description: any){
+    event?.preventDefault();
+    this.dialogConfig.data={headline: headline, description: description};
+    this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
+  }
+
+
 
   // Dialog für Verteiltes Rechnen
   openVR() {

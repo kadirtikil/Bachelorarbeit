@@ -20,6 +20,31 @@
   padding-right: 10px;
 }
 
+.functionalconcepts, .gran1, .gran2 {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+ flex-direction: column;
+
+ padding-right: 20px;
+
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.gran1, .gran2 {
+  display: flex;
+ justify-content: center;
+ align-items: center;
+
+ flex-direction: column;
+
+ padding-left: 20px;
+
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
 .selectionoptions {
   // Ausrichtung eines divs
   display: flex;
@@ -29,16 +54,6 @@
 
 }
 
-.selectionform {
-  display: flex;
-  align-items: left;
-  flex-direction: column;
-}
-
-form {
-  // Für Padding zwischen den Buttons
-  padding: 2px;
-}
 
 
 // Buttondimensionen, immer hier ändern.

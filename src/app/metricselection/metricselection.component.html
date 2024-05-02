@@ -2,14 +2,30 @@
     <div class="selectionheadline">
         <h1>Funktionale-Konzepte</h1><br>
     </div>
+    <div class="functionalconcepts">
+        <button (click)="openExplanationPF('Pure Functions','TEST DESCRIPTION')">Pure Functions</button>
+        <button (click)="openExplanationHOF('HOF','TEST DESCRIPTION')">Higher Order Functions</button>
+        <button (click)="openExplanationImm('Immutability Functions','TEST DESCRIPTION')">Immutability</button>
+        <button (click)="openExplanationMon('Monads','TEST DESCRIPTION')">Monads</button>
+        <button (click)="openExplanationPM('Pattern Matching','TEST DESCRIPTION')">Pattern Matching</button>
+        <button (click)="openExplanationLE('Lazy Evaluation','TEST DESCRIPTION')">Lazy Evaluation</button>
+    </div>
     <div class="selectionoptions">
-        <form action="" class="selectionform" >
-            <button (click)="openVR()">{{ listValues[0] }}</button>
-            <button (click)="openConc()">{{ listValues[1] }}</button>
-            <button (click)="openWE()">{{ listValues[2] }}</button>
-            <button (click)="openD()">{{ listValues[3] }}</button>
-            <button (click)="openSec()">{{ listValues[4] }}</button>
-            <button (click)="openFault()">{{ listValues[6] }}</button>
-        </form>
-    </div>  
+        <button (click)="openVR()">{{ listValues[0] }}</button>
+        <button (click)="openConc()">{{ listValues[1] }}</button>
+        <button (click)="openWE()">{{ listValues[2] }}</button>
+        <button (click)="openD()">{{ listValues[3] }}</button>
+        <button (click)="openSec()">{{ listValues[4] }}</button>
+    </div> 
+    <div class="gran1">
+        <button>Message Passing</button>
+        <button>Performance</button>
+        <button (click)="openFault()">Fehlertoleranz</button>
+        <button>Struktur</button>
+        <button>Sicherheit</button>
+    </div>
+    <div class="gran2">
+        <button>Lesbarkeit</button>
+        <button>Deklarativer Stil</button>
+    </div>
 </div>
