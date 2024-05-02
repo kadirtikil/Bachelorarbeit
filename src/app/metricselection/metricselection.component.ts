@@ -10,7 +10,6 @@ import { MaintenanceComponent } from '../maintenance/maintenance.component';
 import { DataintensiveComponent } from '../dataintensive/dataintensive.component';
 import { TestbarkeitComponent } from '../testbarkeit/testbarkeit.component';
 import { SecurityComponent } from '../security/security.component';
-import { LatenzComponent } from '../latenz/latenz.component';
 import { FehlertoleranzComponent } from '../fehlertoleranz/fehlertoleranz.component';
 import { DialogConfig } from '@angular/cdk/dialog';
 import { ScrollStrategyOptions } from '@angular/cdk/overlay';
@@ -70,11 +69,6 @@ export class MetricselectionComponent {
   openSec() {
     event?.preventDefault();
     this.dialog.open(SecurityComponent, this.dialogConfig);
-  }
-  // Dialog für Geringe Latenz
-  openLL() {
-    event?.preventDefault();
-    this.dialog.open(LatenzComponent, this.dialogConfig);
   }
   // Dialog für Fehlertoleranz
   openFault() {
