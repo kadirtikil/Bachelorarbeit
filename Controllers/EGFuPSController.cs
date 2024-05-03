@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel;
 using System.Text;
-using System.Text.Json;
 
 namespace EGFuPSBackendCS.Controllers
 {
@@ -34,8 +32,6 @@ namespace EGFuPSBackendCS.Controllers
                     clientsTasks.Add(new Task(name: name, duration: duration));
                 }
 
-                // Now you can work with the tasks in the clientsTasks list as needed
-
                 return Ok(new { message = functionalTaskScheduler(clientsTasks)});
             }
         }
@@ -60,6 +56,25 @@ namespace EGFuPSBackendCS.Controllers
 
         public void sendMessage( string sender, string receiver, string message ) { 
             
+        }
+
+
+        [HttpGet("mdtext")]
+        public IActionResult markdownText()
+        {
+            string path = "C:\\Users\\kadir\\source\\repos\\EGFuPSBackendCS\\EGFuPSBackendCS\\Controllers\\text\\PureFunctions.txt";
+
+            try
+            {
+                using(StreamReader sr = new StreamReader(path)) {
+                    string fileContent = sr.ReadToEnd();
+
+                    return Ok( new { message = JsonConvert.SerializeObject(fileContent) });
+                }
+            } catch(Exception ex) { 
+                Console.WriteLine(ex.ToString());
+                return Ok(new { message = ex });
+            }
         }
     }
 

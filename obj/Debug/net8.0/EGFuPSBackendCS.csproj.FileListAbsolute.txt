@@ -34,3 +34,5 @@ C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGF
 C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGFuPSBackendCS.csproj.AssemblyReference.cache
 C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\obj\Debug\net8.0\EGFuPSBa.9EE08674.Up2Date
+C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\bin\Debug\net8.0\FrontendAngular\EGFuPSFrontend\ng-doc\EGFuPSFrontend\assets\indexes.json
+C:\Users\kadir\source\repos\EGFuPSBackendCS\EGFuPSBackendCS\bin\Debug\net8.0\FrontendAngular\EGFuPSFrontend\ng-doc\EGFuPSFrontend\assets\keywords.json
