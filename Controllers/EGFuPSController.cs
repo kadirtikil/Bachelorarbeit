@@ -59,22 +59,91 @@ namespace EGFuPSBackendCS.Controllers
         }
 
 
-        [HttpGet("mdtext")]
-        public IActionResult markdownText()
+
+        // Everything Markdown related is below. dont want to create a specific controller for this. maybe should but whatever fuck you
+
+        // Function to get the txt file. dont want any choas goin on around here.
+
+        public String getTxtFile(string txtFileName)
         {
-            string path = "C:\\Users\\kadir\\source\\repos\\EGFuPSBackendCS\\EGFuPSBackendCS\\Controllers\\text\\PureFunctions.txt";
+            string path = "C:\\Users\\kadir\\source\\repos\\EGFuPSBackendCS\\EGFuPSBackendCS\\Controllers\\text\\" + txtFileName + ".txt";
 
             try
             {
-                using(StreamReader sr = new StreamReader(path)) {
-                    string fileContent = sr.ReadToEnd();
+                using( StreamReader sr = new StreamReader(path))
+                {
+                    string content = sr.ReadToEnd();
 
-                    return Ok( new { message = JsonConvert.SerializeObject(fileContent) });
+                    return content;
                 }
-            } catch(Exception ex) { 
-                Console.WriteLine(ex.ToString());
-                return Ok(new { message = ex });
+            } catch(Exception ex)
+            {
+                Console.Write(ex.ToString());   
+                return ex.ToString();
             }
+        }
+
+        [HttpGet("pf")]
+        public IActionResult markdownPF()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("PureFunctions")) });
+        }
+
+        [HttpGet("hof")]
+        public IActionResult markdownHOF() {
+            // NEeds changing did it for testing purposes.
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("PureFunctions")) });
+        }
+
+        [HttpGet("imm")]
+        public IActionResult markdownIMM ()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject("imm")});
+        }
+
+        [HttpGet("mon")]
+        public IActionResult markdownMON()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject("mon") });
+        }
+
+        [HttpGet("pm")]
+        public IActionResult markdownPM() {
+            return Ok(new { message = JsonConvert.SerializeObject("pm") });
+        }
+
+        [HttpGet("le")]
+        public IActionResult markdownLE() {
+            return Ok(new { message = JsonConvert.SerializeObject("le") });
+        }
+
+        [HttpGet("sec")]
+        public IActionResult markdownSEC() {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Sicherheit")) });
+        }
+
+        [HttpGet("wet")]
+        public IActionResult markdownWET()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Wet")) });
+        }
+
+        [HttpGet("mp")]
+        public IActionResult markdownDS()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("MessagePassing")) });
+        }
+
+        [HttpGet("conc")]
+        public IActionResult markdownCONC()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Nebenlaeufigkeit")) });
+        }
+
+        [HttpGet("di")]
+        public IActionResult markdownDI()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Datenintensiv")) });
         }
     }
 
