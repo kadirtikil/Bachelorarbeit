@@ -1,30 +1,30 @@
 <div class="selectiondiv">
     <div class="selectionheadline">
-        <h1>Funktionale-Konzepte</h1><br>
+        <h1 cdkDrag>Funktionale-Konzepte</h1><br>
     </div>
     <div class="functionalconcepts">
-        <button (click)="openDialog('Pure Functions')">Pure Functions</button>
-        <button (click)="openDialog('Higher Order Functions')">Higher Order Functions</button>
-        <button (click)="openDialog('Immutability')">Immutability</button>
-        <button (click)="openDialog('Monads')">Monads</button>
-        <button (click)="openDialog('Pattern Matching')">Pattern Matching</button>
-        <button (click)="openDialog('Lazy Evaluation')">Lazy Evaluation</button>
+        <button (click)="openDialog('Pure Functions')" cdkDrag>Pure Functions</button>
+        <button (click)="openDialog('Higher Order Functions')" cdkDrag>Higher Order Functions</button>
+        <button (click)="openDialog('Immutability')" cdkDrag>Immutability</button>
+        <button (click)="openDialog('Monads')" cdkDrag>Monads</button>
+        <button (click)="openDialog('Pattern Matching')" cdkDrag>Pattern Matching</button>
+        <button (click)="openDialog('Lazy Evaluation')" cdkDrag>Lazy Evaluation</button>
     </div>
     <div class="selectionoptions">
-        <button (click)="openDialog('Verteiltes Rechnen')">Verteiltes Rechnen</button>
-        <button (click)="openDialog('Concurrency')">Nebenläufigkeit</button>
-        <button (click)="openDialog('Wartbar-, Erweiterbar- und Testbarkeit')">Wartbar-, Erweiterbar- und Testbarkeit</button>
-        <button (click)="openDialog('Datenintensiv')">Datenintensiv</button>
+        <button (click)="openDialog('Verteiltes Rechnen')" cdkDrag>Verteiltes Rechnen</button>
+        <button (click)="openDialog('Concurrency')" cdkDrag>Nebenläufigkeit</button>
+        <button (click)="openDialog('Wartbar-, Erweiterbar- und Testbarkeit')" cdkDrag>Wartbar-, Erweiterbar- und Testbarkeit</button>
+        <button (click)="openDialog('Datenintensiv')" cdkDrag>Datenintensiv</button>
     </div> 
     <div class="gran1">
-        <button (click)="openDialog('Message Passing')">Message Passing</button>
-        <button>Performance</button>
-        <button (click)="openDialog('Fehlertoleranz')">Fehlertoleranz</button>
-        <button>Struktur</button>
-        <button (click)="openDialog('Sicherheitsanforderungen')">Sicherheit</button>
+        <button (click)="openDialog('Message Passing')" cdkDrag>Message Passing</button>
+        <button cdkDrag>Performance</button>
+        <button (click)="openDialog('Fehlertoleranz')" cdkDrag>Fehlertoleranz</button>
+        <button cdkDrag>Struktur</button>
+        <button (click)="openDialog('Sicherheitsanforderungen')" cdkDrag>Sicherheit</button>
     </div>
     <div class="gran2">
-        <button>Lesbarkeit</button>
-        <button>Deklarativer Stil</button>
+        <button cdkDrag>Lesbarkeit</button>
+        <button cdkDrag>Deklarativer Stil</button>
     </div>
 </div>

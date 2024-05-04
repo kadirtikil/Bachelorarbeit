@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
+import { CdkDrag } from '@angular/cdk/drag-drop';
+
 import { FunctionalConceptsExplainationComponent } from '../functional-concepts-explaination/functional-concepts-explaination.component';
 
 @Component({
   selector: 'app-metricselection',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, ],
+  imports: [CommonModule, MatDialogModule, CdkDrag],
   templateUrl: './metricselection.component.html',
   styleUrl: './metricselection.component.scss'
 })
