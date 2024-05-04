@@ -1,6 +1,6 @@
 <div class="selectiondiv">
     <div class="selectionheadline">
-        <h1 cdkDrag>Funktionale-Konzepte</h1><br>
+        <h1 id="posTester" cdkDrag [cdkDragFreeDragPosition]="positionA">Funktionale-Konzepte</h1>
     </div>
     <div class="functionalconcepts">
         <button (dblclick)="openDialog('Pure Functions')" cdkDrag>Pure Functions</button>
