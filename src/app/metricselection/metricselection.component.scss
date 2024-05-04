@@ -20,33 +20,27 @@
   padding-right: 10px;
 }
 
-.functionalconcepts, .gran1, .gran2 {
- display: flex;
- justify-content: center;
- align-items: center;
+.functionalconcepts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
- flex-direction: column;
+  flex-direction: column;
 
- padding-right: 20px;
-
- font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-right: 20px;
 }
 
 .gran1, .gran2 {
   display: flex;
- justify-content: center;
- align-items: center;
+  align-items: center;
 
- flex-direction: column;
+  flex-direction: column;
 
- padding-left: 20px;
-
- font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-left: 20px;
 }
 
 
 .selectionoptions {
-  // Ausrichtung eines divs
   display: flex;
   justify-content: left;
   align-items: left;
@@ -76,8 +70,4 @@ button {
     background-color: aquamarine;
     cursor: pointer;
   }
-}
-
-.selected {
-  background-color: rgb(40, 94, 76);
 }

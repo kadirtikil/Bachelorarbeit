@@ -3,26 +3,25 @@
         <h1>Funktionale-Konzepte</h1><br>
     </div>
     <div class="functionalconcepts">
-        <button (click)="openExplanationPF('Pure Functions','TEST DESCRIPTION')">Pure Functions</button>
-        <button (click)="openExplanationHOF('HOF','TEST DESCRIPTION')">Higher Order Functions</button>
-        <button (click)="openExplanationImm('Immutability Functions','TEST DESCRIPTION')">Immutability</button>
-        <button (click)="openExplanationMon('Monads','TEST DESCRIPTION')">Monads</button>
-        <button (click)="openExplanationPM('Pattern Matching','TEST DESCRIPTION')">Pattern Matching</button>
-        <button (click)="openExplanationLE('Lazy Evaluation','TEST DESCRIPTION')">Lazy Evaluation</button>
+        <button (click)="openDialog('Pure Functions')">Pure Functions</button>
+        <button (click)="openDialog('Higher Order Functions')">Higher Order Functions</button>
+        <button (click)="openDialog('Immutability')">Immutability</button>
+        <button (click)="openDialog('Monads')">Monads</button>
+        <button (click)="openDialog('Pattern Matching')">Pattern Matching</button>
+        <button (click)="openDialog('Lazy Evaluation')">Lazy Evaluation</button>
     </div>
     <div class="selectionoptions">
-        <button (click)="openVR()">{{ listValues[0] }}</button>
-        <button (click)="openConc()">{{ listValues[1] }}</button>
-        <button (click)="openWE()">{{ listValues[2] }}</button>
-        <button (click)="openD()">{{ listValues[3] }}</button>
-        <button (click)="openSec()">{{ listValues[4] }}</button>
+        <button (click)="openDialog('Verteiltes Rechnen')">Verteiltes Rechnen</button>
+        <button (click)="openDialog('Concurrency')">Nebenläufigkeit</button>
+        <button (click)="openDialog('Wartbar-, Erweiterbar- und Testbarkeit')">Wartbar-, Erweiterbar- und Testbarkeit</button>
+        <button (click)="openDialog('Datenintensiv')">Datenintensiv</button>
     </div> 
     <div class="gran1">
-        <button>Message Passing</button>
+        <button (click)="openDialog('Message Passing')">Message Passing</button>
         <button>Performance</button>
-        <button (click)="openFault()">Fehlertoleranz</button>
+        <button (click)="openDialog('Fehlertoleranz')">Fehlertoleranz</button>
         <button>Struktur</button>
-        <button>Sicherheit</button>
+        <button (click)="openDialog('Sicherheitsanforderungen')">Sicherheit</button>
     </div>
     <div class="gran2">
         <button>Lesbarkeit</button>

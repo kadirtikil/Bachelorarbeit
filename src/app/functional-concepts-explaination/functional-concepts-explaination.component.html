@@ -1,6 +1,11 @@
 <div class="root">
-    <h1>{{headline}}</h1>
-    <markdown ngPreserveWhitespaces *ngIf="isLoaded">
+    <h1 *ngIf="hasHeadline">{{headline}}</h1>
+    <markdown ngPreserveWhitespaces *ngIf="isLoaded && hasMarkdown">
         {{description}}
     </markdown>
+    <div class="application" *ngIf="hasApplication">
+        <app-concurrency *ngIf="headline=='Concurrency'"></app-concurrency>
+        <app-dataintensive *ngIf="headline=='Datenintensiv'"></app-dataintensive>
+        <app-vert-rech *ngIf="headline=='Message Passing'"></app-vert-rech>
+    </div>
 </div>
