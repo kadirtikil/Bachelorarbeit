@@ -1,17 +1,17 @@
 <div class="selectiondiv">
     <div class="selectionheadline">
-        <h1 cdkDrag #posTester (cdkDragEnded)="dragEnded($event)">Funktionale-Konzepte</h1>
+        <h1 cdkDrag #posTester >Funktionale-Konzepte</h1>
     </div>
     <div class="functionalconcepts">
-        <button (dblclick)="openDialog('Pure Functions')" cdkDrag>Pure Functions</button>
-        <button (dblclick)="openDialog('Higher Order Functions')" cdkDrag>Higher Order Functions</button>
-        <button (dblclick)="openDialog('Immutability')" cdkDrag>Immutability</button>
-        <button (dblclick)="openDialog('Monads')" cdkDrag>Monads</button>
-        <button (dblclick)="openDialog('Pattern Matching')" cdkDrag>Pattern Matching</button>
-        <button (dblclick)="openDialog('Lazy Evaluation')" cdkDrag>Lazy Evaluation</button>
+        <button (dblclick)="openDialog('Pure Functions')" cdkDrag class="pf">Pure Functions</button>
+        <button (dblclick)="openDialog('Higher Order Functions')" cdkDrag id="hof">Higher Order Functions</button>
+        <button (dblclick)="openDialog('Immutability')" cdkDrag id="imm">Immutability</button>
+        <button (dblclick)="openDialog('Monads')" cdkDrag id="mon">Monads</button>
+        <button (dblclick)="openDialog('Pattern Matching')" cdkDrag id="pm">Pattern Matching</button>
+        <button (dblclick)="openDialog('Lazy Evaluation')" cdkDrag id="le">Lazy Evaluation</button>
     </div>
     <div class="selectionoptions">
-        <button (dblclick)="openDialog('Verteiltes Rechnen')" cdkDrag>Verteiltes Rechnen</button>
+        <button (dblclick)="openDialog('Verteiltes Rechnen')" cdkDrag id="vr">Verteiltes Rechnen</button>
         <button (dblclick)="openDialog('Concurrency')" cdkDrag>Nebenläufigkeit</button>
         <button (dblclick)="openDialog('Wartbar-, Erweiterbar- und Testbarkeit')" cdkDrag>Wartbar-, Erweiterbar- und Testbarkeit</button>
         <button (dblclick)="openDialog('Datenintensiv')" cdkDrag>Datenintensiv</button>

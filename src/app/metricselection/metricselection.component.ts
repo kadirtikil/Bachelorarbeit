@@ -4,62 +4,48 @@ import { CommonModule } from '@angular/common';
 import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
-import { CdkDrag, CdkDragEnd } from '@angular/cdk/drag-drop';
+
+import { CdkDrag, CdkDragMove } from '@angular/cdk/drag-drop';
+
+import * as d3 from 'd3';
 
 import { FunctionalConceptsExplainationComponent } from '../functional-concepts-explaination/functional-concepts-explaination.component';
 
 @Component({
   selector: 'app-metricselection',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, CdkDrag],
+  imports: [CommonModule, MatDialogModule, CdkDrag, ],
   templateUrl: './metricselection.component.html',
   styleUrl: './metricselection.component.scss'
 })
 export class MetricselectionComponent implements OnInit{
 
-  constructor(@Inject(MatDialog) private dialog: MatDialog) { }
-
-  @ViewChild('posTester') draggable!: ElementRef;
+  constructor(@Inject(MatDialog) private dialog: MatDialog, private elementRef: ElementRef) { }
 
 
-  // Function to handle drag end event find better event and log the coords in a schedule on ngoninit. the function inside is aight, just something else instead of cdkfragend
-  dragEnded(event: CdkDragEnd) {
-    // Get the position of the dragged element
-    const position = this.draggable.nativeElement.getBoundingClientRect();
-    console.log('Position:', position);
-  }
 
+  ////////////////////////////////////////////////////////////////////////////////////////
+  // finished funcs line
   dialogConfig: MatDialogConfig = {
     maxHeight: '90vh',
     maxWidth: '80vh',
   };
 
-  // Dialog für Nebenläufigkeit
+  // Dialoge
   openDialog(headline: any) {
     event?.preventDefault();
     this.dialogConfig.data={headline:headline};
     this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
-  }
 
-  // Functions for line drawing. Using svg for better zoom scaling.
-
-  // positions of the two elements that will be connected
-  positionA = {x:0 , y:0};
-  positionB = 0;
-
-
-  
-
-
-  // update line if element is dragged
-  updateLine(): void {
 
   }
+  /////////////////////////////////////////////////////////////////////////////////
+  // not finished funcs line
+  // id for one of the draggables.
+  @ViewChild('posTester') draggable!: ElementRef;
+
 
   // ngoninit to periodically update the line
   ngOnInit(): void {
-      //setInterval(()=>console.log(this.positionA), 1000);
-      //setInterval(() => console.log(document.getElementById("posTester")?.getBoundingClientRect()), 1000)
-      console.log(this.draggable)
   }
 }

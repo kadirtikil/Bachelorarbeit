@@ -7,7 +7,7 @@ import { MetricselectionComponent } from './metricselection/metricselection.comp
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet,
-     MetricselectionComponent, ],
+     MetricselectionComponent,  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

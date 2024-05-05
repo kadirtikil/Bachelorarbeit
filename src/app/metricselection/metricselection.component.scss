@@ -1,3 +1,13 @@
+@mixin center-text{
+  text-align: center;
+}
+
+@mixin center-items-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // Make Root div flex to make child divs share one row.
 .selectiondiv {
   display: flex;
@@ -11,24 +21,27 @@
   flex: 1;
 }
 
+h1 {
+  background-color: white;
+  border-radius: 100px;
+  @include center-text
+}
+
 .selectionheadline {
   // Ausrichtung eines divs
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center-items-div;
 
   padding-right: 10px;
 }
 
 .functionalconcepts {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center-items-div;
 
   flex-direction: column;
 
   padding-right: 20px;
 }
+
 
 .gran1, .gran2 {
   display: flex;
@@ -59,6 +72,7 @@ $buttoncornerradius: 100px;
 button {
   // Designs für die buttons selbst
   background-color: whitesmoke;
+  margin-bottom: 20px;
 
   // Dimensionen der Buttons
   width: $buttonwidth;
@@ -70,4 +84,8 @@ button {
     background-color: aquamarine;
     cursor: pointer;
   }
+}
+
+div {
+  margin-right: 80px;
 }
