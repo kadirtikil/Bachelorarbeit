@@ -92,29 +92,29 @@ namespace EGFuPSBackendCS.Controllers
         [HttpGet("hof")]
         public IActionResult markdownHOF() {
             // NEeds changing did it for testing purposes.
-            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("PureFunctions")) });
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Hof")) });
         }
 
         [HttpGet("imm")]
         public IActionResult markdownIMM ()
         {
-            return Ok(new { message = JsonConvert.SerializeObject("imm")});
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Imm"))});
         }
 
         [HttpGet("mon")]
         public IActionResult markdownMON()
         {
-            return Ok(new { message = JsonConvert.SerializeObject("mon") });
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Mon")) });
         }
 
         [HttpGet("pm")]
         public IActionResult markdownPM() {
-            return Ok(new { message = JsonConvert.SerializeObject("pm") });
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("PatternMatching")) });
         }
 
         [HttpGet("le")]
         public IActionResult markdownLE() {
-            return Ok(new { message = JsonConvert.SerializeObject("le") });
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("LazyEval")) });
         }
 
         [HttpGet("sec")]

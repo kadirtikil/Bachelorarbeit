@@ -1,0 +1,32 @@
+Higher-Order-Funktionen sind Funktionen, die entweder eine Funktion als Argument akzeptieren oder eine Funktion zurückgeben, oder beides.
+
+### Beispiel:
+
+```python
+def apply_operation(operation, x, y):
+    """
+    Führt eine Operation auf zwei Zahlen aus.
+    
+    :param operation: Die Operation, die durchgeführt werden soll.
+    :param x: Die erste Zahl.
+    :param y: Die zweite Zahl.
+    :return: Das Ergebnis der Operation.
+    """
+    return operation(x, y)
+
+def add(x, y):
+    """Addiert zwei Zahlen."""
+    return x + y
+
+def subtract(x, y):
+    """Subtrahiert zwei Zahlen."""
+    return x - y
+
+# Beispielaufruf von apply_operation mit add als Argument
+result_add = apply_operation(add, 5, 3)
+print("Addition:", result_add)  # Ausgabe: Addition: 8
+
+# Beispielaufruf von apply_operation mit subtract als Argument
+result_subtract = apply_operation(subtract, 5, 3)
+print("Subtraktion:", result_subtract)  # Ausgabe: Subtraktion: 2
+```

@@ -1,0 +1,26 @@
+Lazy Evaluation ist ein Konzept, das in funktionalen Programmiersprachen weit verbreitet ist. Bei der träge Auswertung werden Ausdrücke nicht sofort ausgewertet, sondern erst dann, wenn ihr Wert tatsächlich benötigt wird. Dies ermöglicht eine effiziente Verwendung von Ressourcen und kann die Leistung verbessern, insbesondere wenn es um die Verarbeitung großer oder unendlicher Datenmengen geht.
+
+### Wie funktioniert Lazy Evaluation?
+
+Bei der träge Auswertung werden Ausdrücke in Form von sogenannten "Thunks" oder "Versprechungen" (Promises) repräsentiert. Diese enthalten den Code zur Auswertung des Ausdrucks und werden erst dann evaluiert, wenn ihr Wert benötigt wird. Dadurch werden unnötige Berechnungen vermieden und Ressourcen effizient genutzt.
+
+### Beispiel:
+
+```haskell
+-- Beispiel in Haskell
+
+-- Definition einer unendlichen Liste von natürlichen Zahlen
+naturals :: [Integer]
+naturals = [1..]
+
+-- Funktion zur Berechnung der Summe der ersten n natürlichen Zahlen
+sumOfNaturals :: Integer -> Integer
+sumOfNaturals n = sum (take n naturals)
+
+-- Beispielaufruf
+result :: Integer
+result = sumOfNaturals 10
+
+-- Ausgabe des Ergebnisses
+main :: IO ()
+main = putStrLn ("Summe der ersten 10 natürlichen Zahlen: " ++ show result)

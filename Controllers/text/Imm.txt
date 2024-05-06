@@ -1,0 +1,30 @@
+In funktionalen Programmiersprachen wird Unveränderlichkeit großgeschrieben. Das bedeutet, dass Daten nach ihrer Erstellung nicht mehr verändert werden können. Immutabilität ist ein wichtiger Konzept in der funktionalen Programmierung, da sie eine Reihe von Vorteilen bietet, darunter:
+
+- **Einfachere Verwaltung von Zustand**: Da Daten unveränderlich sind, müssen Sie sich keine Gedanken über unerwartete Seiteneffekte oder Zustandsänderungen machen.
+- **Einfache Nebenläufigkeit**: Unveränderliche Daten können sicher zwischen Threads oder Prozessen geteilt werden, da sie nicht verändert werden können. Dadurch wird die Synchronisierung vereinfacht.
+- **Sicherheit**: Unveränderliche Daten sind thread-sicher und weniger anfällig für Fehler durch gleichzeitigen Zugriff.
+
+### Beispiel:
+
+```python
+# Beispiel in Python, einer nicht rein funktionalen Sprache
+
+# Liste mit mutierbaren Daten
+mutable_list = [1, 2, 3]
+
+# Mutierbare Operation: Element hinzufügen
+mutable_list.append(4)
+
+print("Mutierbare Liste:", mutable_list)  # Ausgabe: Mutierbare Liste: [1, 2, 3, 4]
+
+# Beispiel in einer funktionalen Sprache (hier: Clojure)
+
+;; Beispiel in Clojure, einer funktionalen Sprache
+
+;; Vektor mit unveränderlichen Daten
+(def immutable_vector [1 2 3])
+
+;; Unveränderliche Operation: Ein neuer Vektor mit einem zusätzlichen Element erstellen
+(def new_vector (conj immutable_vector 4))
+
+(println "Unveränderlicher Vektor:" new_vector)  ;; Ausgabe: Unveränderlicher Vektor: [1 2 3 4]
