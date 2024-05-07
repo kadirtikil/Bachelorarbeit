@@ -1,1 +1,2 @@
-
+# Struktur
+ist easy. dazu einfach ein paar code beispiele nehmen und erklären.
