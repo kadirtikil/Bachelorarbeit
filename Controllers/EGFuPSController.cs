@@ -66,7 +66,9 @@ namespace EGFuPSBackendCS.Controllers
 
         public String getTxtFile(string txtFileName)
         {
-            string path = "C:\\Users\\kadir\\source\\repos\\EGFuPSBackendCS\\EGFuPSBackendCS\\Controllers\\text\\" + txtFileName + ".txt";
+            //string path1 = "C:\\Users\\kadir\\source\\repos\\EGFuPSBackendCS\\EGFuPSBackendCS\\Controllers\\text\\" + txtFileName + ".txt";
+            string path = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\" + txtFileName + ".txt";
+
 
             try
             {
@@ -153,7 +155,7 @@ namespace EGFuPSBackendCS.Controllers
         [HttpGet("perf")]
         public IActionResult markdownPERF()
         {
-            return Ok(new {message = JsonConvert.SerializeObject(getTxtFile("Performance"))})
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Performance")) });
         }
         [HttpGet("strc")]
         public IActionResult markdownSTRUC()
