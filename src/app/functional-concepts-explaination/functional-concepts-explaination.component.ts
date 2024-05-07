@@ -55,6 +55,9 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Lazy Evaluation": "le",
         "Sicherheitsanforderungen": "sec",
         "Wartbar-, Erweiterbar- und Testbarkeit": "wet",
+        "Fehlertoleranz": "ft",
+        "Performance": "perf",
+        "Struktur": "strc",
       };
 
       const mappedOptionswithApplications: {[key: string]: string} = {

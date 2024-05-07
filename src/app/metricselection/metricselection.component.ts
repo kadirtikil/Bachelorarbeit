@@ -36,8 +36,6 @@ export class MetricselectionComponent implements OnInit{
     event?.preventDefault();
     this.dialogConfig.data={headline:headline};
     this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
-
-
   }
   /////////////////////////////////////////////////////////////////////////////////
   // not finished funcs line

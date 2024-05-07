@@ -11,6 +11,6 @@ export class RetrieveFileForMDService {
   constructor(private http: HttpClient) { }
 
   getTextFile(headline: string): Observable<string> {
-    return this.http.get<string>(`https://localhost:7132/${headline}`);
+    return this.http.get<string>(`http://localhost:5000/${headline}`);
   }
 }
