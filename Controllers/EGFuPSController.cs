@@ -145,6 +145,21 @@ namespace EGFuPSBackendCS.Controllers
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Datenintensiv")) });
         }
+        [HttpGet("ft")]
+        public IActionResult markdownFT()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Fehlertoleranz")) });
+        }
+        [HttpGet("perf")]
+        public IActionResult markdownPERF()
+        {
+            return Ok(new {message = JsonConvert.SerializeObject(getTxtFile("Performance"))})
+        }
+        [HttpGet("strc")]
+        public IActionResult markdownSTRUC()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Struktur")) });
+        }
     }
 
 
