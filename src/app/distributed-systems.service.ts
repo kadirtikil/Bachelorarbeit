@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DistributedSystemsService {
 
-  private api = "https://localhost:7132/distributedSystems";
+  private api = "http://localhost:5000/distributedSystems";
 
   constructor(private httpClient: HttpClient) { }
 

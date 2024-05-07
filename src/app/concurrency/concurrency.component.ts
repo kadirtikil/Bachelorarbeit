@@ -25,6 +25,7 @@ export class ConcurrencyComponent {
   });
 
   tasks: { name: String; duration: String; }[] = [];
+  sortedTasks: any;
 
   addTask(): void {
     event?.preventDefault();
@@ -46,7 +47,7 @@ export class ConcurrencyComponent {
     const jsonifiedtasks = JSON.stringify(this.tasks);
     // http stuff to send the data to the backend for the algorithm
     this.schedulerservice.taskScheduler(jsonifiedtasks)
-      .subscribe((response) => console.log(response));
+      .subscribe((response) => {this.sortedTasks=response; this.sortedTasks = JSON.parse(this.sortedTasks.message);});
   }
 
 }

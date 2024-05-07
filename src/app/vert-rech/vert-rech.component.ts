@@ -32,7 +32,6 @@ export class VertRechComponent {
     if(Pid !== null && Pid !== undefined && Message !== null && Message !== undefined && this.pidMessages.length < 3){
       this.pidMessages.push({pid: Pid?.toString(), message: Message?.toString()})
     }
-    console.log(this.pidMessages);
   }
 
   // Submitting the Data

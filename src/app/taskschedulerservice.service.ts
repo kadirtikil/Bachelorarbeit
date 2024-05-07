@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class TaskschedulerserviceService {
 
-  private api = "https://localhost:7132/taskScheduler";
+  private api = "http://localhost:5000/taskScheduler";
 
   constructor(private httpClient: HttpClient) { }
 

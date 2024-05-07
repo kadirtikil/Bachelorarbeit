@@ -14,6 +14,10 @@
     <div class="finishedscheduling">
         <p>Hier kommt das fertige Ergebnis hin</p>
     </div>
+    <div class="sortedResult" *ngFor="let task of sortedTasks">
+        {{task.Name}}
+        {{task.Duration}}
+    </div>
     <mat-dialog-actions>
         <button mat-button mat-dialog-close="">Schließen</button>
     </mat-dialog-actions>
