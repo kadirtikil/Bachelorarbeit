@@ -32,7 +32,7 @@ namespace EGFuPSBackendCS.Controllers
                     clientsTasks.Add(new Task(name: name, duration: duration));
                 }
 
-                return Ok(new { message = functionalTaskScheduler(clientsTasks)});
+                return Ok(new { message = JsonConvert.SerializeObject(functionalTaskScheduler(clientsTasks))});
             }
         }
 
