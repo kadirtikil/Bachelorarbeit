@@ -1,31 +1,26 @@
-        Beim Messagepassing in Erlang ist es wichtig, dass die Prozesse miteinander kommunizieren können, 
-        um synchron zu bleiben. Die Messages werden hierbei durch das Pattern Matching aneinander übertragen.
-        Des weiteren muss der Sender nicht auf eine Antwort vom Empfänger warten.
-        Das Absenden einer Nachricht geschieht wie folgt:
+# Verteilte Systeme
 
-        ```
-            Pid ! {{ '{' }} self(), "Message Contents" {{ '}' }}
-        ```
-        
-        Links steht die Pid des Empfängers. Das self() übernimmt hierbei die Pid des Senders. Zum Schluss wird noch der
-        Nachrichteninhalt übergeben.
-        
-        Das Empfangen einer Nachricht geschieht wie folgt:
-        ```
-            receive
-                {{'{'}} From, Message {{'}'}} -> ...
-                ...
-            end
-        ```
+Verteilte Systeme ermöglichen das Skalieren von Rechner-Ressourcen. 
+Des Weiteren ermöglichen Verteilte-Systeme Fehlertoleranz.
 
-        Hier wird das Pattern-Matching verwendet, um eine Nachricht von 'From' zu finden.
+Basic Issue: 
+- Handhabung von mehreren Prozessoren.
+- Teil Ausbrüche im System.
 
-        
+Wo kommt nun die Funktionale-Programmierung ins Spiel?
 
-        Wenn ein Prozess eine Nachricht erhält, vergleicht dieser die empfangene Nachricht, mit dem definiertem Pattern im Empfangsblock. 
-        Wenn dieser zum definierten Muster passt, wird der entsprechende Codeblock ausgeführt. 
-        Wenn nicht, wartet der Prozess bis eine passende Nachricht eintrifft. 
+Features des FuP:
+- Purity: Funktionen haben keine Seiteneffekte auf Objekte oder Daten an sich. Eine Pure-Function liefert auch bei dem gleichen Input immer denselben Output.
+- immutability: Daten an sich können nach Ihrer deklaration nicht verändert werden.
+- First-Class: Funktionen sind wie Datentypen. Können also variablen zugewiesen werden oder auch anderen Funktionen als Parameter  übergeben werden.
+- Higher Order Functions: Funktionen die Funktionen entgegen nehmen und/oder Funktionen zurück liefern.
+- ...
 
-        Das Pattern Matching ermöglicht es in Erlang, Nachrichten in einer klaren art und weise zu handhaben 
-        wodurch es möglich ist, eine klare Struktur im Code zu haben, welcher einfach nachvollziehbar ist. 
-        Dieser funktionale Ansatz ist Grund für die Zuverlässigkeit und Fehlertoleranz in Erlang. 
+Wo kommen die Vorteile der FuP ins spiel?
+Basic Issues werden durch Funktionale Programmierung erledigt.
+- keine Seiteneffekte
+- einfachere ressourcen einteilung durch nebenläufigkeit.
+- functionen sind aufgebaut wie bausteine (Also einfacher nachzuvollziehen)
+
+Für Abstraktion siehe Message Passing.
+
