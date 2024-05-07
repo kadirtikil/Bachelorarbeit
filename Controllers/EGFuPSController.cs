@@ -131,7 +131,7 @@ namespace EGFuPSBackendCS.Controllers
         }
 
         [HttpGet("mp")]
-        public IActionResult markdownDS()
+        public IActionResult markdownMP()
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("MessagePassing")) });
         }
@@ -161,6 +161,11 @@ namespace EGFuPSBackendCS.Controllers
         public IActionResult markdownSTRUC()
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Struktur")) });
+        }
+        [HttpGet("ds")]
+        public IActionResult markdownDS()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("VerteiltesRechnen")) });
         }
     }
 
