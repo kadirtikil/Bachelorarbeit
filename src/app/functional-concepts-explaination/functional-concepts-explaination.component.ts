@@ -36,6 +36,9 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
   // Boolean for div that contains the application. 
   hasApplication: boolean = false;
 
+  // Boolean for div if it need to contain a svg for the panzoom
+  hasSvg: boolean = false;
+
   // temporary placeholer, cause i cant adress a payload from server as json immediatly. have to save it here first then it works.
   temp: any = "";
 
@@ -47,15 +50,8 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
       this.headline = this.data.headline;
 
       const mappedOptions: { [key: string]: string } = {
-        "Pure Functions": "pf",
-        "Higher Order Functions": "hof",
-        "Immutability": "imm",
-        "Monads": "mon",
-        "Pattern Matching": "pm",
-        "Lazy Evaluation": "le",
         "Sicherheitsanforderungen": "sec",
         "Wartbar-, Erweiterbar- und Testbarkeit": "wet",
-        "Fehlertoleranz": "ft",
         "Performance": "perf",
         "Struktur": "strc",
       };
@@ -65,6 +61,14 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Concurrency": "conc",
         "Datenintensiv": "di",
         "Message Passing": "mp",
+      }
+
+      const mappedOptionsWithSvg :{[key: string]: string} = {
+        "Pure Functions": "pf",
+        "Higher Order Functions": "hof",
+        "Immutability": "imm",
+        "Monads": "mon",
+        "Pattern Matching": "pm",
       }
 
       const headlineString = this.headline.toString();
@@ -82,15 +86,25 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         const fileId = mappedOptionswithApplications[headlineString as keyof typeof mappedOptionswithApplications];
         this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
         this.description = JSON.parse(this.temp["message"]);
-        //
 
         // Setting the booleans. with applications this time.
         this.hasHeadline = true;
         this.hasMarkdown = true;
         this.isLoaded = true;
         this.hasApplication = true;
-      } 
-      else {
+      } else if(this.headline in mappedOptionsWithSvg) {
+        const fileId = mappedOptionsWithSvg[headlineString as keyof typeof mappedOptionsWithSvg];
+        this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
+        this.description = JSON.parse(this.temp["message"]);
+
+        // later pass in the svg here and handle the behaviour
+        
+
+        this.hasHeadline = true;
+        this.hasMarkdown = true;
+        this.hasSvg = true;
+        this.isLoaded = true;
+      } else {
         this.description ="Stop forging stuff boi";
       }
 
