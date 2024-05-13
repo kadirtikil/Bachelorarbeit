@@ -10,6 +10,8 @@ import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
 import { ConcurrencyComponent } from '../concurrency/concurrency.component';
 import { DataintensiveComponent } from '../dataintensive/dataintensive.component';
 import { VertRechComponent } from '../vert-rech/vert-rech.component';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -38,11 +40,14 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
 
   // Boolean for div if it need to contain a svg for the panzoom
   hasSvg: boolean = false;
+  svgPicture: SafeHtml = "";
 
   // temporary placeholer, cause i cant adress a payload from server as json immediatly. have to save it here first then it works.
   temp: any = "";
+  temp1: any = "";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private retrieveFile: RetrieveFileForMDService) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private retrieveFile: RetrieveFileForMDService,
+  private sanitizer: DomSanitizer, private http: HttpClient) {}
 
 
   async ngOnInit() {
@@ -82,6 +87,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         this.hasHeadline= true;
         this.hasMarkdown=true;
         this.isLoaded=true;
+
       } else if(this.headline in mappedOptionswithApplications){
         const fileId = mappedOptionswithApplications[headlineString as keyof typeof mappedOptionswithApplications];
         this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
@@ -96,16 +102,23 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         const fileId = mappedOptionsWithSvg[headlineString as keyof typeof mappedOptionsWithSvg];
         this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
         this.description = JSON.parse(this.temp["message"]);
+        // Get the SVG picture a string from backend
+        //this.http.get(`http://localhost:5000/svgtest)`).subscribe((response: any)=>
+        //{this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(response.message)})
+        this.temp1 = await this.retrieveFile.getTextFile("svgtest").toPromise();
+        this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
+
+        console.log(this.svgPicture);
 
         // later pass in the svg here and handle the behaviour
-        
-
         this.hasHeadline = true;
         this.hasMarkdown = true;
         this.hasSvg = true;
         this.isLoaded = true;
+
       } else {
         this.description ="Stop forging stuff boi";
+
       }
 
     } catch(err){

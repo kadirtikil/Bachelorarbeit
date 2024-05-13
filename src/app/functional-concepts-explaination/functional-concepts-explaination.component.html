@@ -8,7 +8,7 @@
         <app-dataintensive *ngIf="headline=='Datenintensiv'"></app-dataintensive>
         <app-vert-rech *ngIf="headline=='Message Passing'"></app-vert-rech>
     </div>
-    <div class="svg" *ngIf="hasSvg">
-        <p>SVG is in here! Later with panzoom</p>
+    <div class="svg" *ngIf="hasSvg" >
+        <div [innerHTML]="svgPicture"></div>
     </div>
 </div>
