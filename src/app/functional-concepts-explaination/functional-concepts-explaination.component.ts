@@ -7,18 +7,21 @@ import { MarkdownModule } from 'ngx-markdown';
 
 import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
 
+import { NgxPanZoomModule, PanZoomConfig, PanZoomAPI, PanZoomModel, PanZoomConfigOptions } from 'ngx-panzoom';
+
 import { ConcurrencyComponent } from '../concurrency/concurrency.component';
 import { DataintensiveComponent } from '../dataintensive/dataintensive.component';
 import { VertRechComponent } from '../vert-rech/vert-rech.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
+import { options } from 'marked';
 
 
 @Component({
   selector: 'app-functional-concepts-explaination',
   standalone: true,
   imports: [MarkdownModule, CommonModule, ConcurrencyComponent, DataintensiveComponent, 
-    VertRechComponent,
+    VertRechComponent, NgxPanZoomModule,
   ],
   templateUrl: './functional-concepts-explaination.component.html',
   styleUrl: './functional-concepts-explaination.component.scss'
@@ -27,6 +30,17 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
   @Input() headline: string= "";
   @Input() description: any;
   
+  // panzoom configurations
+  panzoomConfig: PanZoomConfig = new PanZoomConfig( {
+    zoomLevels: 5,
+    initialZoomLevel: 2,
+    initialPanX: 10,
+    initialPanY: 10,
+    neutralZoomLevel: 1,
+    scalePerZoomLevel: 2,
+    friction: 10,
+    haltSpeed: 100,
+  });
   // Boolean value to Render headline if component is supposed to have a headline
   hasHeadline: boolean = false;
 
@@ -108,7 +122,6 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         this.temp1 = await this.retrieveFile.getTextFile("svgtest").toPromise();
         this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
 
-        console.log(this.svgPicture);
 
         // later pass in the svg here and handle the behaviour
         this.hasHeadline = true;

@@ -8,7 +8,9 @@
         <app-dataintensive *ngIf="headline=='Datenintensiv'"></app-dataintensive>
         <app-vert-rech *ngIf="headline=='Message Passing'"></app-vert-rech>
     </div>
-    <div class="svg" *ngIf="hasSvg" >
-        <div [innerHTML]="svgPicture"></div>
+    <div class="svg" *ngIf="hasSvg">
+        <div style="position: relative;">
+                <div [innerHTML]="svgPicture" ngxPanZoomSvg></div>
+        </div>
     </div>
 </div>
