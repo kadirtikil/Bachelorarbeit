@@ -51,11 +51,45 @@ namespace EGFuPSBackendCS.Controllers
                 string requestBody = await reader.ReadToEndAsync();
 
                 Console.WriteLine(requestBody);
+
+                var objects = JArray.Parse(requestBody);
+
+                var listOfMessages = new List<Message>();
+                
+                foreach(JObject obj in objects)
+                {
+                    string pid = obj["pid"].ToString();
+                    string message = obj["message"].ToString();
+                    string requiredfor = obj["requiredfor"].ToString();
+
+                    listOfMessages.Add(new Message(pid: pid, content: message, requiredfor: requiredfor));
+                }
+
+                Console.Write(listOfMessages);
+                // feed the list to the function such that the function can simulate, how a message passing would look like. 
+                // then return result as json and handle format in frontend
+
+
             }
         }
 
         public void sendMessage( string sender, string receiver, string message ) { 
             
+        }
+
+
+        // Everything SVG related is down here
+        [HttpGet("svgtest")]
+        public IActionResult getTestSvg()
+        {
+            string path = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\svgs\\Test.svg";
+
+
+            string svgContent = System.IO.File.ReadAllText(path);
+
+            //  HttpContext.Response.ContentType = "image/svg+xml";
+
+            return Ok(new { message = svgContent });
         }
 
 
@@ -93,7 +127,6 @@ namespace EGFuPSBackendCS.Controllers
 
         [HttpGet("hof")]
         public IActionResult markdownHOF() {
-            // NEeds changing did it for testing purposes.
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Hof")) });
         }
 
@@ -190,11 +223,13 @@ namespace EGFuPSBackendCS.Controllers
     {
         public string Pid { get; set; }
         public string Content { get; set; }
+        public string RequiredFor { get; set; }
 
-        public Message(string pid, string content)
+        public Message(string pid, string content, string requiredfor)
         {
             Pid = pid;
             Content = content;
+            RequiredFor = requiredfor;
         }
     }
 

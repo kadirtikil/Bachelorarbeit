@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Controllers",
+    "\\Controllers\\svgs",
     "\\Controllers\\text"
   ],
+  "SelectedNode": "\\Controllers\\svgs\\Test.svg",
   "PreviewInSolutionExplorer": false
 }
