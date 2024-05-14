@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -10,7 +11,7 @@ import { DistributedSystemsService } from '../distributed-systems.service';
 @Component({
   selector: 'app-vert-rech',
   standalone: true,
-  imports: [MatDialogModule, ReactiveFormsModule, MarkdownModule, ],
+  imports: [MatDialogModule, ReactiveFormsModule, MarkdownModule, CommonModule, ],
   templateUrl: './vert-rech.component.html',
   styleUrl: './vert-rech.component.scss'
 })

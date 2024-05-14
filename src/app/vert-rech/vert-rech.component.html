@@ -9,9 +9,11 @@
         </div>
         <button (click)="submitMessages()">Submit</button>
     </form>
-    <div class="closing">
-        <mat-dialog-actions>
-            <button mat-button mat-dialog-close="">Schließen</button>
-        </mat-dialog-actions>
+    <div class="messageDisplazer">
+        <div class="displayMessages" *ngFor="let msg of pidMessages">
+            {{msg.pid}}
+            {{msg.message}}
+            {{msg.requiredfor}}
+        </div>  
     </div>
 </div>
