@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogConfig, } from '@angular/material/dialog';
 
 import { CommonModule } from '@angular/common';
 
@@ -14,14 +14,13 @@ import { DataintensiveComponent } from '../dataintensive/dataintensive.component
 import { VertRechComponent } from '../vert-rech/vert-rech.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
-import { options } from 'marked';
-
+import { SvgdisplayerComponent } from '../svgdisplayer/svgdisplayer.component';
 
 @Component({
   selector: 'app-functional-concepts-explaination',
   standalone: true,
-  imports: [MarkdownModule, CommonModule, ConcurrencyComponent, DataintensiveComponent, 
-    VertRechComponent, NgxPanZoomModule,
+  imports: [MarkdownModule, MatDialogModule, CommonModule, ConcurrencyComponent, DataintensiveComponent, 
+    VertRechComponent, NgxPanZoomModule, SvgdisplayerComponent, 
   ],
   templateUrl: './functional-concepts-explaination.component.html',
   styleUrl: './functional-concepts-explaination.component.scss'
@@ -30,17 +29,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
   @Input() headline: string= "";
   @Input() description: any;
   
-  // panzoom configurations
-  panzoomConfig: PanZoomConfig = new PanZoomConfig( {
-    zoomLevels: 5,
-    initialZoomLevel: 2,
-    initialPanX: 10,
-    initialPanY: 10,
-    neutralZoomLevel: 1,
-    scalePerZoomLevel: 2,
-    friction: 10,
-    haltSpeed: 100,
-  });
+
   // Boolean value to Render headline if component is supposed to have a headline
   hasHeadline: boolean = false;
 
@@ -61,7 +50,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
   temp1: any = "";
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private retrieveFile: RetrieveFileForMDService,
-  private sanitizer: DomSanitizer, private http: HttpClient) {}
+  private sanitizer: DomSanitizer, private http: HttpClient, private dialog: MatDialog) {}
 
 
   async ngOnInit() {
@@ -116,11 +105,6 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         const fileId = mappedOptionsWithSvg[headlineString as keyof typeof mappedOptionsWithSvg];
         this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
         this.description = JSON.parse(this.temp["message"]);
-        // Get the SVG picture a string from backend
-        //this.http.get(`http://localhost:5000/svgtest)`).subscribe((response: any)=>
-        //{this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(response.message)})
-        this.temp1 = await this.retrieveFile.getTextFile("svgtest").toPromise();
-        this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
 
 
         // later pass in the svg here and handle the behaviour
@@ -137,6 +121,10 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     } catch(err){
       console.error(err);
     }
+  }
+
+  openSVG() {
+    this.dialog.open(SvgdisplayerComponent);
   }
   
 }
