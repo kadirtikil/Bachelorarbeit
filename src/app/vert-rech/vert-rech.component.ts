@@ -23,7 +23,7 @@ export class VertRechComponent {
   })
 
   // Array for messages. These will be send to the backend.
-  pidMessages: {pid: String; message: String; requiredfor: String}[] = [];
+  pidMessages: {pid: string; message: string; requiredfor: string}[] = [];
 
   addMessages(): void {
     event?.preventDefault();
@@ -32,7 +32,7 @@ export class VertRechComponent {
     const Message = this.dsForm.value.message;
     const Requiredfor = this.dsForm.value.requiredfor;
 
-    if(Pid !== null && Pid !== undefined && Message !== null && Message !== undefined && Requiredfor!==null && Requiredfor!==undefined  &&this.pidMessages.length < 3){
+    if(Pid !== null && Pid !== undefined && Message !== null && Message !== undefined && Requiredfor!==null && Requiredfor!==undefined  && this.pidMessages.length < 3){
       this.pidMessages.push({pid: Pid?.toString(), message: Message?.toString(), requiredfor: Requiredfor?.toString()})
     }
   }
@@ -42,15 +42,18 @@ export class VertRechComponent {
 
   // Value to later display in the frontend
   // ...
+  sortedMessages: {pid: string; message: string; requiredfor: string}[] = [];
 
-  submitMessages(): void {
+  showMessages(): void {
     event?.preventDefault();
 
-    const jsonifiedMessages = JSON.stringify(this.pidMessages);
 
-    console.log(jsonifiedMessages);
+    // Sort the Messages by Required for
+    this.sortedMessages = this.pidMessages.sort((a,b) => {
+      return parseInt(a.requiredfor) - parseInt(b.requiredfor);
 
-    this.http.distributedSystem(jsonifiedMessages)
-      .subscribe((response) => { console.log(response); });
+    });
+    
+    console.log(this.sortedMessages);
   }
 }

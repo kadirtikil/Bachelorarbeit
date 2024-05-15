@@ -7,7 +7,7 @@
             <input formControlName="requiredfor" type="text" placeholder="Required for:">
             <button id="addButton" (click)="addMessages()">Add</button>
         </div>
-        <button (click)="submitMessages()">Submit</button>
+        <button (click)="showMessages()">Submit</button>
     </form>
     <div class="messageDisplazer">
         <div class="displayMessages" *ngFor="let msg of pidMessages">

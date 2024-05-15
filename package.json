@@ -30,6 +30,7 @@
     "ngx-markdown": "^17.2.0",
     "ngx-panzoom": "^17.0.0",
     "rxjs": "~7.8.0",
+    "scrollmagic": "^2.0.8",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },
