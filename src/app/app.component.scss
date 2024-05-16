@@ -31,6 +31,14 @@
         
     }
 
+    .section > h2{
+        color: black;
+    }
+
+    .section:not(:first-child) {
+        padding-left: 25vh;
+    }
+
     .selectionheadline {
         display: flex;
         justify-content: center;
