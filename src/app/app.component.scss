@@ -1,5 +1,71 @@
-app-metricselection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    // Buttondimensionen, immer hier ändern.
+    $buttonwidth: 225px;
+    $buttonheight: 50px;
+
+    $buttoncornerradius: 100px;
+
+    button {
+        // Designs für die buttons selbst
+        background-color: whitesmoke;
+
+        // Dimensionen der Buttons
+        width: $buttonwidth;
+        height: $buttonheight;
+
+        border-radius: $buttoncornerradius;
+
+        &:hover {
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+    }
+
+
+    // Div styling starts here.
+    .section{
+        height: 100vh;
+
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+
+        
+    }
+
+    .selectionheadline {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        background: linear-gradient(to right, black 50%, white 50%);
+
+    }
+
+    .headlinetext {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        border: 1px solid black;
+        border-radius: 30px;
+
+        color: linear-gradient(to right, black 50%, white 50%);
+        background: linear-gradient(to right, white 50%, black 50%);
+
+        padding: 5px;
+
+    }
+
+    h1, h3 {
+        background: linear-gradient(to right, black 50%, white 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+    .initbuttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background: linear-gradient(to right, white 50%, black 50%);
+    }

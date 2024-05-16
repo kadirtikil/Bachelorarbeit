@@ -1,1 +1,44 @@
-<app-metricselection></app-metricselection>
+<div class="selectiondiv">
+    <div class="section selectionheadline">
+        <div class="headlinetext">
+            <h1 cdkDrag #posTester >Funktionale-Konzepte</h1>
+            <h3>
+                Auf dieser Seite sind Funktionale-Konzepte in den folgenden Seiten erklärt. 
+                Diese können wie Karteikarten zum lernen genutzt werden.
+            </h3>
+        </div>
+    </div>
+    <div class="section initbuttons functionalconcepts">
+        <button (dblclick)="openDialog('Pure Functions')" cdkDrag class="pf">Pure Functions</button>
+        <button (dblclick)="openDialog('Higher Order Functions')" cdkDrag id="hof">Higher Order Functions</button>
+        <button (dblclick)="openDialog('Immutability')" cdkDrag id="imm">Immutability</button>
+        <button (dblclick)="openDialog('Monads')" cdkDrag id="mon">Monads</button>
+        <button (dblclick)="openDialog('Pattern Matching')" cdkDrag id="pm">Pattern Matching</button>
+    </div>
+    <div class="section initbuttons purefunction">
+        <button (dblclick)="openDialog('Verteiltes Rechnen')" cdkDrag id="vr">Verteiltes Rechnen</button>
+        <button (dblclick)="openDialog('Wartbar-, Erweiterbar- und Testbarkeit')" cdkDrag>Wartbar-, Erweiterbar- und Testbarkeit</button>
+        <button (dblclick)="openDialog('Struktur')" cdkDrag>Struktur</button>
+    </div> 
+    <div class="section initbuttons hof">
+        <button (dblclick)="openDialog('Performance')" cdkDrag>Performance</button>
+        <button (dblclick)="openDialog('Datenintensiv')" cdkDrag>Datenintensiv</button>
+        <button>Funktionskomposition</button>
+        <button>Currying</button>
+    </div>
+    <div class="section initbuttons immutability">
+        <button (dblclick)="openDialog('Sicherheitsanforderungen')" cdkDrag>Sicherheit</button>
+        <button (dblclick)="openDialog('Concurrency')" cdkDrag>Nebenläufigkeit</button>
+        <button>Persistente Datenstrukturen</button>
+    </div>
+    <div class="section initbuttons monads">
+        <button>Monadische Gesetze</button>
+        <button>Sequentierung</button>
+        <button>Error Handling</button>
+    </div>
+    <div class="section initbuttons patternmatching">
+        <button (dblclick)="openDialog('Message Passing')" cdkDrag>Message Passing</button>
+        <button>Nebenläufigkeit und Parallelität</button>
+        <button>Compilerbau</button>
+    </div>
+</div>

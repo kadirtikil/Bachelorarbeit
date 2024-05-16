@@ -127,6 +127,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     this.dialog.open(SvgdisplayerComponent);
   }
   
+  
 }
   
 
