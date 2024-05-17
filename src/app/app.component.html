@@ -1,7 +1,7 @@
 <div class="selectiondiv">
     <div class="section selectionheadline">
         <div class="headlinetext">
-            <h1 cdkDrag #posTester >Funktionale-Konzepte</h1>
+            <h1>Funktionale-Konzepte</h1>
             <h3>
                 Auf dieser Seite sind Funktionale-Konzepte in den folgenden Seiten erklärt. 
                 Diese können wie Karteikarten zum lernen genutzt werden.
@@ -35,7 +35,7 @@
         <button (dblclick)="openDialog('Concurrency')" cdkDrag>Nebenläufigkeit</button>
         <button>Persistente Datenstrukturen</button>
     </div>
-    <div class="section initbuttons monads">
+    <div class="section initbuttons monads" id="monads">
         <h2>Monaden</h2>
         <button>Monadische Gesetze</button>
         <button>Sequentierung</button>
@@ -44,7 +44,7 @@
     <div class="section initbuttons patternmatching">
         <h2>Pattern Matching</h2>
         <button (dblclick)="openDialog('Message Passing')" cdkDrag>Message Passing</button>
-        <button>Nebenläufigkeit und Parallelität</button>
-        <button>Compilerbau</button>
+        <button cdkDrag>Nebenläufigkeit und Parallelität</button>
+        <button cdkDrag >Compilerbau</button>
     </div>
 </div>

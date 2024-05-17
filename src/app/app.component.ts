@@ -5,7 +5,7 @@ import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
 
-import { CdkDrag, CdkDragMove } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragMove, CdkDragHandle } from '@angular/cdk/drag-drop';
 
 import * as d3 from 'd3';
 
