@@ -1,32 +1,70 @@
-Higher-Order-Funktionen sind Funktionen, die entweder eine Funktion als Argument akzeptieren oder eine Funktion zurückgeben, oder beides.
+# Higher Order Functions
+**Higher Order Functions** sind Funktionen, die entweder eine oder mehrere Funktion/en als Argument entgegen nehmen und/oder eine Funktion zurückgeben.
 
-### Beispiel:
+Nicht weit weg von **HOF** befinden sich die **First Class Functions**. 
+In **First Class Functions** ist es möglich:
+1.  Funktionen an Variablen zuzuweisen.
+2.  Funktionen als Argumente an andere Funktionen weiterzugeben.
+3.  Funktionen als Rückgabewert von Funktionen zu erhalten.
 
-```python
-def apply_operation(operation, x, y):
-    """
-    Führt eine Operation auf zwei Zahlen aus.
-    
-    :param operation: Die Operation, die durchgeführt werden soll.
-    :param x: Die erste Zahl.
-    :param y: Die zweite Zahl.
-    :return: Das Ergebnis der Operation.
-    """
-    return operation(x, y)
+### Beispiel für eine First Class Function
+```javascript
+	// Die Zuweisung einer Funktion an eine Variable:
+	// Funktion wird bei Aufruf der Variable ausgeführt.
+	const foo = () => { console.log("Hello World!"); }
 
-def add(x, y):
-    """Addiert zwei Zahlen."""
-    return x + y
+	// Die Übergabe einer Funktion, an eine weiter Funktion, als Argument.
+	function printHello() {
+		return "Hello ";
+	}
 
-def subtract(x, y):
-    """Subtrahiert zwei Zahlen."""
-    return x - y
+	function printWorld(messageFunc, name) {
+		console.log(messageFunc() + name + "!");
+	}
 
-# Beispielaufruf von apply_operation mit add als Argument
-result_add = apply_operation(add, 5, 3)
-print("Addition:", result_add)  # Ausgabe: Addition: 8
+	=> printWorld(printHello, "World"); // Prints "Hello World!"
 
-# Beispielaufruf von apply_operation mit subtract als Argument
-result_subtract = apply_operation(subtract, 5, 3)
-print("Subtraktion:", result_subtract)  # Ausgabe: Subtraktion: 2
+	
+	// Funktionen als Rückgabewert. Siehe Higher Order Functions.
+
+```
+
+### Beispiel für eine Higher Order Function
+```javascript
+	// Higher-order function mit entsprechendem Rückgabewert basierend auf dem Operator  
+	function  operationFactory(operator) { 
+	// Rückgabe einer Funktion die 2 Werte nimmt und die Operation des operanden ausführt.  
+		switch (operator) { 
+			case  '+': 
+				return  function  add(a, b) { 
+					return a + b; 
+				}; 
+			case  '-':
+				return  function  subtract(a, b) { 
+					return a - b; 
+				}; 
+			case  '*': 
+				return  function  multiply(a, b) { 
+					return a * b; 
+				}; 
+			case  '/': 
+				return  function  divide(a, b) { 
+					return a / b; 
+				}; 
+			default: 
+			throw  new  Error('Invalid operator: ' + operator); 
+			} 
+	} 
+  
+	// Operanden werden mit der operationFactory erstellt.
+	const add = operationFactory('+'); 
+	const subtract = operationFactory('-'); 
+	const multiply = operationFactory('*'); 
+	const divide = operationFactory('/'); 
+
+	// Ergebnis  
+	console.log(add(5, 3)); // Output: 8  
+	console.log(subtract(10, 4)); // Output: 6  
+	console.log(multiply(2, 6)); // Output: 12  
+	console.log(divide(20, 5)); // Output: 4
 ```
