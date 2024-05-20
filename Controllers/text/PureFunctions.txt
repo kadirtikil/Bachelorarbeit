@@ -1,38 +1,72 @@
-A Function that will always deliver the same output if given the same input,and therefore has no side effect on the mutation of data. An example for this:
+# Pure Functions
+**Pure Functions** sind Funktionen, ohne Seiteneffekte. D.h., dass bei einem immer gleichen Input, ein immer gleicher Output folgt. 
 
+Um dies zu gewährleisten, muss sichergestellt werden, dass eine Funktion nach ihrer Deklaration - *immutable* - d.h. *unveränderbar* ist.
+
+Dazu eine paar **Beispiele**.
+
+
+## Impure Functions
+
+```java
+public class AddToNum {
+	private int num;
+
+	public void add(int add) {
+		this.num += add;
+	}
+
+	public int getNum() {
+		return this.num;
+	}
+
+	public static void main(String args[]){
+		// Ab hier sollte sich der interne Wert von atm nicht mehr ändern dürfen
+		AddToNum atm = new AddToNum(3); 
+		// Nach Anwendung von getNum(), antwortet diese mit "3".
+		System.out.println(atm.getNum());
+		
+		// Aber nun geschieht es. Der interne Zustand eines bereits deklariertem 
+		// Werts wird modifiziert
+		atm.add(2);
+		
+		// Nach Anwendung von getNum(), antwortet diese mit "5".
+		// Das ist no bueno, da sich der interne Zustand von "3" auf "5" geändert hat.
+		// Somit würde getNum() nun einen anderen Wert zurückgeben.
+		System.out.println(atm.getNum()); 
+	}
+} 
 ```
-const xs = [1,2,3,4,5];
 
-// pure
-xs.slice(0,3); // [1,2,3]
+## Pure Functions
 
-xs.slice(0,3); // [1,2,3]
+```java
+	public class AddToNum {
+	private int num;
 
-xs.slice(0,3); // [1,2,3]
+	public int add(int add) {
+		return this.num + add;
+	}
 
+	public int getNum() {
+		return this.num;
+	}
 
-// impure
-xs.splice(0,3); // [1,2,3]
-
-xs.splice(0,3); // [4,5]
-
-xs.splice(0,3); // []
-``` 
-splice leaves a problem for use here because of the alternating changes it has in its output.
-
-Another example for pure/impure functions:
-
+	public static void main(String args[]){
+		// Ab hier sollte sich der interne Wert von atm nicht mehr ändern dürfen
+		AddToNum atm = new AddToNum(3); 
+		// Nach Anwendung von getNum(), antwortet diese mit "3".
+		System.out.println(atm.getNum());
+		
+		// Aber nun geschieht es. Der interne Zustand eines bereits deklarierten Werts wird 
+		// modifiziert
+		atm.add(2);
+		// Nach Anwendung von getNum(), antwortet diese wieder mit "3". Das ist sehr bueno.
+		// Diesesmal hat add() nämlich den internen Zustand von atm nicht verändert.
+		// Der interne Zustand von atm ist nun nach Ihrer deklaration nicht mehr veränderbar.
+		System.out.println(atm.getNum()); 
+	}
+} 
 ```
-// impure
-let minimum = 21;
-const checkAge = age => age >= minimum;
 
-// pure
-const checkAge = (age) => {
-  const minimum = 21;
-  return age >= minimum;
-};
-```
-The first function is impure because "minimum" is mutable and therefore can potentially deliver non desired outputs.
 
-Pure functions in Functional Programming are mathematical function, which is what Functional Programming is all about. With benefits like:
