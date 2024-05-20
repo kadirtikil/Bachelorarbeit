@@ -1,30 +1,37 @@
-In funktionalen Programmiersprachen wird Unveränderlichkeit großgeschrieben. Das bedeutet, dass Daten nach ihrer Erstellung nicht mehr verändert werden können. Immutabilität ist ein wichtiger Konzept in der funktionalen Programmierung, da sie eine Reihe von Vorteilen bietet, darunter:
+# Immutability
+**Immutability** bedeutet, dass etwas sich nicht ändert, auch nicht über einen gegebenen Zeitraum hinaus.
 
-- **Einfachere Verwaltung von Zustand**: Da Daten unveränderlich sind, müssen Sie sich keine Gedanken über unerwartete Seiteneffekte oder Zustandsänderungen machen.
-- **Einfache Nebenläufigkeit**: Unveränderliche Daten können sicher zwischen Threads oder Prozessen geteilt werden, da sie nicht verändert werden können. Dadurch wird die Synchronisierung vereinfacht.
-- **Sicherheit**: Unveränderliche Daten sind thread-sicher und weniger anfällig für Fehler durch gleichzeitigen Zugriff.
+In der Funktionalen Programmierung bezieht sich dies auf die **Unveränderbarkeit** eines Datums nach ihrer Initialisierung. Dadurch sind Seiteneffekte nicht möglich. D.h. ein Wert kann sich während der Laufzeit nicht unerwartet ändern.
 
-### Beispiel:
+Dieses Designkonzept der **Unveränderbarkeit** hat in vielen Konzepten einen immensen Nutzen.
+Zum Beispiel in:
+1. Sicherheit
+2. Nebenläufigkeit
+3. Persistente Datenstrukturen
+Dazu aber später mehr.
 
-```python
-# Beispiel in Python, einer nicht rein funktionalen Sprache
+## Nun stellen sich ein paar Fragen:
+### Warum bevorzugt die Funktionale Programmierung Immutability?
+Weil dadurch der Code viel einfacher nachzuvollziehen ist. 
+```javascript
+	function addItem(cart, item) {
+	  return {
+	    ...cart,
+	    items: [...cart.items, item],
+	    total: cart.total + item.price,
+	  };
+	}
 
-# Liste mit mutierbaren Daten
-mutable_list = [1, 2, 3]
+	const cart = { items: [], total: 0 };
+	const cartWithApple = addItem(cart, { name: 'Apple', price: 1 });
+	const cartWithAppleAndBanana = addItem(cartWithApple, { name: 'Banana', price: 2 });
 
-# Mutierbare Operation: Element hinzufügen
-mutable_list.append(4)
+	console.log(cart); // { items: [], total: 0 }
+	console.log(cartWithApple); // { items: [ { name: 'Apple', price: 1 } ], total: 1 }
+	console.log(cartWithAppleAndBanana); // { items: [ { name: 'Apple', price: 1 }, 
+										 //{ name: 'Banana', price: 2 } ], total: 3 }
 
-print("Mutierbare Liste:", mutable_list)  # Ausgabe: Mutierbare Liste: [1, 2, 3, 4]
+``` 
 
-# Beispiel in einer funktionalen Sprache (hier: Clojure)
-
-;; Beispiel in Clojure, einer funktionalen Sprache
-
-;; Vektor mit unveränderlichen Daten
-(def immutable_vector [1 2 3])
-
-;; Unveränderliche Operation: Ein neuer Vektor mit einem zusätzlichen Element erstellen
-(def new_vector (conj immutable_vector 4))
-
-(println "Unveränderlicher Vektor:" new_vector)  ;; Ausgabe: Unveränderlicher Vektor: [1 2 3 4]
+## Warum legt die Funktionale Programmierung einen so hohen Fokus auf die Veränderbarkeit von Daten?
+Hauptsächlich wegen besser strukturiertem Code. Jedoch spielt es noch eine Weitere Rolle in der Nebenläufigkeit. (Dazu aber später mehr.)
