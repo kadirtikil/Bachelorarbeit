@@ -30,12 +30,35 @@ export class SvgdisplayerComponent implements OnInit {
   temp1: any = "";
 
 
+  // Boolean to render the svg when its loadet
+  svgRendered: boolean = false;
+
+
 
   async ngOnInit() {
-    console.log("hello" + this.data.headline)
+
+    const svgLinkMapper :{[key: string]: string} = {
+      "Pure Functions": "purefunction",
+      "Higher Order Functions": "higherorderfunction",
+      "Immutability": "immutable",
+      "Monads": "monads",
+      "Pattern Matching": "patternmatching",
+    }
+
+    this.headline = this.data.headline;
+
+    const headlineAsString = this.headline.toString();
+
     try{
-      this.temp1 = await this.retrieveFile.getTextFile("patternmatching").toPromise();
-      this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
+      if(this.headline in  svgLinkMapper){
+        const link = svgLinkMapper[headlineAsString as keyof typeof svgLinkMapper];
+        
+
+        this.temp1 = await this.retrieveFile.getTextFile(link).toPromise();
+        this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
+
+        this.svgRendered = true;
+      }
     } catch(error){
       console.log(error);
     }
