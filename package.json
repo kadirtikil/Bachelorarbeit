@@ -29,6 +29,7 @@
     "marked": "^12.0.0",
     "ngx-markdown": "^17.2.0",
     "ngx-panzoom": "^17.0.0",
+    "prismjs": "^1.28.0",
     "rxjs": "~7.8.0",
     "scrollmagic": "^2.0.8",
     "tslib": "^2.3.0",

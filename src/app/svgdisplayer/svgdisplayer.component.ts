@@ -43,6 +43,7 @@ export class SvgdisplayerComponent implements OnInit {
       "Immutability": "immutable",
       "Monads": "monads",
       "Pattern Matching": "patternmatching",
+      "Funktionskomposition": "funccomp",
     }
 
     this.headline = this.data.headline;

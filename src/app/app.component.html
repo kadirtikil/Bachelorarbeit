@@ -20,20 +20,17 @@
         <h2>Pure Functions</h2>
         <button (dblclick)="openDialog('Verteiltes Rechnen')" cdkDrag id="vr">Verteiltes Rechnen</button>
         <button (dblclick)="openDialog('Wartbar-, Erweiterbar- und Testbarkeit')" cdkDrag>Wartbar-, Erweiterbar- und Testbarkeit</button>
-        <button (dblclick)="openDialog('Struktur')" cdkDrag>Struktur</button>
     </div> 
     <div class="section initbuttons hof">
         <h2>Higher Order Functions</h2>
-        <button (dblclick)="openDialog('Performance')" cdkDrag>Performance</button>
         <button (dblclick)="openDialog('Datenintensiv')" cdkDrag>Datenintensiv</button>
-        <button>Funktionskomposition</button>
-        <button>Currying</button>
+        <button (dblclick)="openDialog('Funktionskomposition')">Funktionskomposition</button>
+        <button (dblclick)="openDialog('Currying')">Currying</button>
     </div>
     <div class="section initbuttons immutability">
         <h2>Immutability</h2>
-        <button (dblclick)="openDialog('Sicherheitsanforderungen')" cdkDrag>Sicherheit</button>
         <button (dblclick)="openDialog('Concurrency')" cdkDrag>Nebenläufigkeit</button>
-        <button>Persistente Datenstrukturen</button>
+        <button (dblclick)="openDialog('Persistente Datenstrukturen')">Persistente Datenstrukturen</button>
     </div>
     <div class="section initbuttons monads" id="monads">
         <h2>Monaden</h2>
@@ -44,7 +41,6 @@
     <div class="section initbuttons patternmatching">
         <h2>Pattern Matching</h2>
         <button (dblclick)="openDialog('Message Passing')" cdkDrag>Message Passing</button>
-        <button cdkDrag>Nebenläufigkeit und Parallelität</button>
         <button cdkDrag >Compilerbau</button>
     </div>
 </div>

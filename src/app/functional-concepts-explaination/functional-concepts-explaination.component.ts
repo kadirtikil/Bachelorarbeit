@@ -61,7 +61,8 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Sicherheitsanforderungen": "sec",
         "Wartbar-, Erweiterbar- und Testbarkeit": "wet",
         "Performance": "perf",
-        "Struktur": "strc",
+        "Currying": "cr",
+        "Persistente Datenstrukturen": "ps",
       };
 
       const mappedOptionswithApplications: {[key: string]: string} = {
@@ -77,6 +78,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Immutability": "imm",
         "Monads": "mon",
         "Pattern Matching": "pm",
+        "Funktionskomposition": "fk",
       }
 
       const headlineString = this.headline.toString();
