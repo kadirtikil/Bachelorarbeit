@@ -127,6 +127,8 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.data = {headline: headline};
+    dialogConfig.maxHeight = "90vh";
+    dialogConfig.maxWidth = "90vh";
     this.dialog.open(SvgdisplayerComponent, dialogConfig);
   }
   
