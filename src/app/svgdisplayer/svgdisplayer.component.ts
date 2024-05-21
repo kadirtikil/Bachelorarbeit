@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
@@ -15,7 +16,12 @@ import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
 export class SvgdisplayerComponent implements OnInit {
 
   // Constructor
-  constructor(private retrieveFile: RetrieveFileForMDService, private sanitizer: DomSanitizer) {}
+  constructor(private retrieveFile: RetrieveFileForMDService, private sanitizer: DomSanitizer, 
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {}
+
+
+  @Input() headline: string = "";
 
   // Backend value of the svg
   svgPicture: SafeHtml = "";
@@ -26,8 +32,9 @@ export class SvgdisplayerComponent implements OnInit {
 
 
   async ngOnInit() {
+    console.log("hello" + this.data.headline)
     try{
-      this.temp1 = await this.retrieveFile.getTextFile("svgtest").toPromise();
+      this.temp1 = await this.retrieveFile.getTextFile("patternmatching").toPromise();
       this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
     } catch(error){
       console.log(error);

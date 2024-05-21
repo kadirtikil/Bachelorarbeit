@@ -123,8 +123,11 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     }
   }
 
-  openSVG() {
-    this.dialog.open(SvgdisplayerComponent);
+  openSVG(headline: any) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {headline: headline};
+    this.dialog.open(SvgdisplayerComponent, dialogConfig);
   }
   
   
