@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
     "\\Controllers",
     "\\Controllers\\svgs",
-    "\\Controllers\\text"
+    "\\Controllers\\text",
+    "\\Properties"
   ],
-  "SelectedNode": "\\Controllers\\svgs\\Test.svg",
+  "SelectedNode": "\\Controllers\\svgs\\PatternMatching.svg",
   "PreviewInSolutionExplorer": false
 }

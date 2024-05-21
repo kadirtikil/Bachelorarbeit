@@ -79,18 +79,48 @@ namespace EGFuPSBackendCS.Controllers
 
 
         // Everything SVG related is down here
-        [HttpGet("svgtest")]
-        public IActionResult getTestSvg()
+        public string getTestSvg(string svgFileName)
         {
-            string path = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\svgs\\Test.svg";
+            string path = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\svgs\\" + svgFileName + ".svg";
 
 
             string svgContent = System.IO.File.ReadAllText(path);
 
             //  HttpContext.Response.ContentType = "image/svg+xml";
 
-            return Ok(new { message = svgContent });
+            return svgContent;
         }
+
+        [HttpGet("patternmatching")]
+        public IActionResult getPmSvg()
+        {
+            return Ok(new { message = getTestSvg("PatternMatching") });
+        }
+
+        [HttpGet("immutable")]
+        public IActionResult getImmSvg()
+        {
+            return Ok(new { message = getTestSvg("Immutability") });
+        }
+
+        [HttpGet("higherorderfunction")]
+        public IActionResult getHofSvg()
+        {
+            return Ok(new { message = getTestSvg("PatternMatching") });
+        }
+
+        [HttpGet("monads")]
+        public IActionResult getMoSvg()
+        {
+            return Ok(new { message = getTestSvg("Monaden") });
+        }
+
+        [HttpGet("purefunction")]
+        public IActionResult getPfSvg()
+        {
+            return Ok(new { message = getTestSvg("Pure Functions") });
+        }
+
 
 
 
