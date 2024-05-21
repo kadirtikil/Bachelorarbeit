@@ -120,7 +120,11 @@ namespace EGFuPSBackendCS.Controllers
         {
             return Ok(new { message = getTestSvg("Pure Functions") });
         }
-
+        [HttpGet("funccomp")]
+        public IActionResult getFuncC()
+        {
+            return Ok(new { message = getTestSvg("Funktionskomposition") });
+        }
 
 
 
@@ -229,6 +233,21 @@ namespace EGFuPSBackendCS.Controllers
         public IActionResult markdownDS()
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("VerteiltesRechnen")) });
+        }
+        [HttpGet("fk")]
+        public IActionResult markdownFk()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Funktionskomposition")) });
+        }
+        [HttpGet("cr")]
+        public IActionResult markdownCr()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Currying")) });
+        }
+        [HttpGet("ps")]
+        public IActionResult markdownPs()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("PersistenteDatenstrukturen")) });
         }
     }
 

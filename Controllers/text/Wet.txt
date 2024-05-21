@@ -1,52 +1,42 @@
 Die Erweiterbarkeit, Wartbarkeit und Testbarkeit spielen in der Funktionalen-Programmierung eine wichtige Rolle.
-        Durch die geringe granularität des Codes ist es möglich, diesen besser und schneller nachzuvollziehen.
-        Desweiteren ist dadurch ein einfaches testen des Codes möglich.
+Durch die geringe granularität des Codes ist es möglich, diesen besser und schneller nachzuvollziehen.
+Desweiteren ist dadurch ein einfaches testen des Codes möglich.
 
-        Im folgenden ist ein Beispiel, welches imperativ und danach funktional programmiert wurde.
+Im folgenden ist ein Beispiel, welches imperativ und danach funktional programmiert wurde.
 
-        **Imperativ** 
-        ```
-        class ShoppingCart:
-            def __init__(self):
-                self.items = []
+**Imperativ** 
+```javascript
+// Imperativer Ansatz
+function processNumbersImperative(numbers) {
+    let result = [];
+    for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) { // Check ob Zahl ungerade ist
+        result.push(numbers[i] * numbers[i]); // Quadriere die Zahl
+    }
+    }
+    return result;
+}
 
-            def add_item(self, item, price):
-                self.items.append((item, price))
-
-            def calculate_total(self):
-                total = 0
-                for item, price in self.items:
-                    total += price
-                return total
+// Output
+const numbers = [1, 2, 3, 4, 5];
+console.log(processNumbersImperative(numbers)); // => [1, 9, 25]
 
 
-        cart = ShoppingCart()
-        cart.add_item("Apple", 1.50)
-        cart.add_item("Banana", 0.75)
-        total_price = cart.calculate_total()
-        print("Total price:", total_price)
+```
 
-        ```
+**Funktional** 
 
-        **Funktional** 
+```javascript
+// Funktionaler Ansatz
+function processNumbersFunctional(numbers) {
+  return numbers
+    .filter(n => n % 2 !== 0) // Filtere die gerade Zahlen
+    .map(n => n * n);         // Quadriere die übrigen Zahlen
+}
 
-        ```
-        def add_item(cart, item, price):
-            return cart + [(item, price)]
+// Output
+const numbers = [1, 2, 3, 4, 5];
+console.log(processNumbersFunctional(numbers)); // => [1, 9, 25]
 
-        def calculate_total(cart):
-            return sum(price for _, price in cart)
 
-        cart = []
-        cart = add_item(cart, "Apple", 1.50)
-        cart = add_item(cart, "Banana", 0.75)
-        total_price = calculate_total(cart)
-        print("Total price:", total_price)
-
-        ```
-        Fokus auf:
-        - Simple struktur
-        - immutability
-        - higher order functions
-        - deklarativer stil
-        - granularität: programm ist in kleine teile aufgeteilt, oder es wird so bevorzugt => besser für wartung und/oder erweiterung
+```

@@ -1,26 +1,24 @@
-# Verteilte Systeme
 
-Verteilte Systeme ermöglichen das Skalieren von Rechner-Ressourcen. 
-Des Weiteren ermöglichen Verteilte-Systeme Fehlertoleranz.
+Verteiltes Rechnen bezieht sich auf Systeme, die eine Berechnung auf mehrere, separate und miteinander verbundene Rechner verteilt und ausführt. Diese Rechner teilen sich somit den Prozess untereinander auf. Gründe für die Verteilung eines Prozesses sind:
 
-Basic Issue: 
-- Handhabung von mehreren Prozessoren.
-- Teil Ausbrüche im System.
+-   **Bessere Skalierbarkeit**: Durch die Verteilung der Arbeitslast auf mehrere Rechner kann die Gesamtleistung eines Systems nahezu linear skaliert werden.
+-   **Höhere Verfügbarkeit**: Verteilte Systeme sind weniger anfällig für Ausfälle, da der Ausfall eines einzelnen Rechners nicht das gesamte System beeinträchtigt.
+-   **Fehlertoleranz**: Daten und Prozesse werden redundant verteilt, um Ausfälle abzufangen und die Zuverlässigkeit zu erhöhen.
+-   **Parallelverarbeitung**: Aufgaben können parallel bearbeitet werden, was die Effizienz und Geschwindigkeit von Berechnungen erheblich steigert.
 
-Wo kommt nun die Funktionale-Programmierung ins Spiel?
+## Funktionale Programmierung für verteiltes Rechnen
 
-Features des FuP:
-- Purity: Funktionen haben keine Seiteneffekte auf Objekte oder Daten an sich. Eine Pure-Function liefert auch bei dem gleichen Input immer denselben Output.
-- immutability: Daten an sich können nach Ihrer deklaration nicht verändert werden.
-- First-Class: Funktionen sind wie Datentypen. Können also variablen zugewiesen werden oder auch anderen Funktionen als Parameter  übergeben werden.
-- Higher Order Functions: Funktionen die Funktionen entgegen nehmen und/oder Funktionen zurück liefern.
-- ...
+Das verteilte Rechnen wird durch die Anwendung funktionaler Programmierkonzepte besonders effizient und zuverlässig. Wichtige Konzepte hierbei sind:
 
-Wo kommen die Vorteile der FuP ins spiel?
-Basic Issues werden durch Funktionale Programmierung erledigt.
-- keine Seiteneffekte
-- einfachere ressourcen einteilung durch nebenläufigkeit.
-- functionen sind aufgebaut wie bausteine (Also einfacher nachzuvollziehen)
+-   **Unveränderlichkeit (Immutability)**: Durch die Unveränderbarkeit der Daten können mehrere Prozesse gleichzeitig auf denselben Datensatz zugreifen. Da diese Datenstrukturen sich nicht ändern, kann jeder Prozess davon ausgehen, dass er mit denselben Daten arbeitet wie die anderen Prozesse. Dies verhindert Dateninkonsistenzen und vereinfacht die Synchronisation.
+    
+-   **Reinheit der Funktionen (Pure Functions)**: Reine Funktionen erlauben keine Seiteneffekte und hängen nur von ihren Eingabewerten ab. Dies bedeutet, dass dieselbe Eingabe immer dasselbe Ergebnis liefert. Durch die Nutzung von reinen Funktionen ist es möglich, diese leicht zu parallelisieren. Egal auf welchem Rechner die Funktion arbeitet oder welcher Teil der Funktion ausgeführt wird, das Resultat bleibt dasselbe. Dies vereinfacht die Verteilung und Skalierung von Berechnungen.
 
-Für Abstraktion siehe Message Passing.
+-   **Higher-Order-Functions**: Funktionen, die andere Funktionen als Argumente nehmen oder zurückgeben, fördern die Modularität und Wiederverwendbarkeit des Codes. Dies ist besonders nützlich in verteilten Systemen, in denen verschiedene Funktionen auf verschiedenen Knoten ausgeführt werden können.
+    
+-   **Lazy Evaluation**: Diese Technik verzögert die Berechnung bis zu dem Zeitpunkt, an dem das Ergebnis benötigt wird. Dies kann die Effizienz in verteilten Systemen verbessern, indem unnötige Berechnungen vermieden werden.
+    
+-   **Referentielle Transparenz**: Dies bedeutet, dass ein Ausdruck durch seinen Wert ersetzt werden kann, ohne das Programmverhalten zu ändern. Dies erleichtert das Verständnis und die Fehlerbehebung von Programmen in verteilten Systemen.
+    
 
+Durch die Kombination dieser Konzepte können verteilte Systeme effizienter, sicherer und einfacher zu warten gemacht werden, was die Entwicklung skalierbarer und robuster Anwendungen unterstützt.

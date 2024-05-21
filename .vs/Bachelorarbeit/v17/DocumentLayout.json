@@ -9,10 +9,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Struktur.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\text\\Struktur.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Struktur.txt",
-              "DocumentMoniker": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Struktur.txt",
-              "RelativeDocumentMoniker": "Controllers\\text\\Struktur.txt",
-              "ToolTip": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Struktur.txt",
-              "RelativeToolTip": "Controllers\\text\\Struktur.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-05-17T09:14:50.709Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -47,8 +30,7 @@
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-16T10:04:10.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-16T10:04:10.631Z"
             },
             {
               "$type": "Document",
@@ -58,7 +40,7 @@
               "RelativeDocumentMoniker": "Controllers\\EGFuPSController.cs",
               "ToolTip": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\EGFuPSController.cs",
               "RelativeToolTip": "Controllers\\EGFuPSController.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAuwHYAAAAiAAAA",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAH0AAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T09:36:02.276Z",
               "EditorCaption": ""

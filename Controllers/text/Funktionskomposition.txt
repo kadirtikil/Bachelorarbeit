@@ -1,0 +1,13 @@
+# Funktionskompositon HOF
+Funktionskomposition ist das aneinanderketten von Funktionen in einer spezifischen Reihenfolge, sodass ein Datum von ihrer ursprünglichen Form in eine neue Form transformiert wird.
+
+Dies ist einfach zu veranschaulichen mit einer Pipeline.
+Siehe unten bei *Pipeline*.
+
+Beispiel:
+Gegeben sind die Funktionen f, g und h. 
+Die Funktionen sind nicht assoziativ zueinander und müssen alphabetisch auf das Datum **x** ausgeführt werden.
+Das hätte diese Reihenfolge zur folge:
+```javascript
+	h( g( f( x ) ) )
+```
