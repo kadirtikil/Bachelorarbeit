@@ -13,7 +13,8 @@
         <button (dblclick)="openDialog('Pure Functions')" cdkDrag class="pf">Pure Functions</button>
         <button (dblclick)="openDialog('Higher Order Functions')" cdkDrag id="hof">Higher Order Functions</button>
         <button (dblclick)="openDialog('Immutability')" cdkDrag id="imm">Immutability</button>
-        <button (dblclick)="openDialog('Monads')" cdkDrag id="mon">Monads</button>
+        <button (dblclick)="openDialog('Rekursion')" cdkDrag id="mon">Rekursion</button>
+        <button (dblclick)="openDialog('Lazy Evaluation')">Lazy Evaluation</button>
         <button (dblclick)="openDialog('Pattern Matching')" cdkDrag id="pm">Pattern Matching</button>
     </div>
     <div class="section initbuttons purefunction">
@@ -32,15 +33,9 @@
         <button (dblclick)="openDialog('Concurrency')" cdkDrag>Nebenläufigkeit</button>
         <button (dblclick)="openDialog('Persistente Datenstrukturen')">Persistente Datenstrukturen</button>
     </div>
-    <div class="section initbuttons monads" id="monads">
-        <h2>Monaden</h2>
-        <button>Monadische Gesetze</button>
-        <button>Sequentierung</button>
-        <button>Error Handling</button>
-    </div>
     <div class="section initbuttons patternmatching">
         <h2>Pattern Matching</h2>
         <button (dblclick)="openDialog('Message Passing')" cdkDrag>Message Passing</button>
-        <button cdkDrag >Compilerbau</button>
+        <button (dblclick)="openDialog('Compilerbau')" cdkDrag >Compilerbau</button>
     </div>
 </div>

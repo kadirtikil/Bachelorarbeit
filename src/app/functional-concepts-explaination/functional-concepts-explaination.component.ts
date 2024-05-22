@@ -63,6 +63,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Performance": "perf",
         "Currying": "cr",
         "Persistente Datenstrukturen": "ps",
+        "Compilerbau": "cb",
       };
 
       const mappedOptionswithApplications: {[key: string]: string} = {
@@ -79,6 +80,8 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Monads": "mon",
         "Pattern Matching": "pm",
         "Funktionskomposition": "fk",
+        "Lazy Evaluation": "le",
+        "Rekursion": "rk",
       }
 
       const headlineString = this.headline.toString();
