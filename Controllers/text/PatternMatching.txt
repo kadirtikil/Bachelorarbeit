@@ -2,27 +2,27 @@ Pattern Matching ist ein leistungsstarkes Konzept in funktionalen Programmierspr
 
 ### Wie funktioniert Pattern Matching?
 
-Pattern Matching besteht aus dem Vergleich eines Wertes mit einer Menge von Mustern. Wenn der Wert mit einem der Muster übereinstimmt, wird der zugehörige Codeblock ausgeführt. Pattern Matching kann auf verschiedene Arten von Datenstrukturen angewendet werden, einschließlich Listen, Tupeln, Datentypen und mehr.
-
+Pattern Matching besteht aus dem Vergleich eines Wertes mit einer Menge von Mustern. Wenn der Wert mit einem der Muster übereinstimmt, wird der zugehörige Codeblock ausgeführt.    
 ### Beispiel:
 
-```haskell
--- Beispiel in Haskell
+```javascript
+object PatternMatchingExample {
+  def main(args: Array[String]): Unit = {
+    println(describe(5))
+    println(describe("hello"))
+    println(describe(List(1, 2, 3)))
+    println(describe((1, "apple")))
+  }
 
--- Definition einer einfachen Datenstruktur für geometrische Formen
-data Shape = Circle Float | Rectangle Float Float
+  def describe(x: Any): String = x match {
+    case 5 => "Es ist die Zahl fünf."
+    case "hello" => "Es ist ein Begrüßungswort."
+    case List(_, _, _) => "Es ist eine Liste mit drei Elementen."
+    case (1, something) => s"Es ist ein Tupel, das mit 1 beginnt und $something enthält."
+    case _ => "Es ist etwas anderes."
+  }
+}
 
--- Funktion zur Berechnung der Fläche einer Form
-area :: Shape -> Float
-area (Circle r) = pi * r * r
-area (Rectangle w h) = w * h
+```
 
--- Beispielaufrufe
-circleArea = area (Circle 5.0)  -- Berechnet die Fläche eines Kreises mit Radius 5.0
-rectArea = area (Rectangle 3.0 4.0)  -- Berechnet die Fläche eines Rechtecks mit Breite 3.0 und Höhe 4.0
-
--- Ausgabe der Ergebnisse
-main :: IO ()
-main = do
-    putStrLn ("Fläche des Kreises: " ++ show circleArea)
-    putStrLn ("Fläche des Rechtecks: " ++ show rectArea)
+Unten ist ein Beispiel in Prolog.

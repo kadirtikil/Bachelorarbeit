@@ -3,10 +3,9 @@
     "",
     "\\bin",
     "\\Controllers",
-    "\\Controllers\\svgs",
     "\\Controllers\\text",
     "\\Properties"
   ],
-  "SelectedNode": "\\Controllers\\text\\PersistenteDatenstrukturen.txt",
+  "SelectedNode": "\\Controllers\\text\\Compilerbau.txt",
   "PreviewInSolutionExplorer": false
 }

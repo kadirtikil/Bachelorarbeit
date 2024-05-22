@@ -249,6 +249,16 @@ namespace EGFuPSBackendCS.Controllers
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("PersistenteDatenstrukturen")) });
         }
+        [HttpGet("rk")]
+        public IActionResult markdownRk()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Rekursion")) });
+        }
+        [HttpGet("cb")]
+        public IActionResult markdownCb()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Compilerbau")) });
+        }
     }
 
 

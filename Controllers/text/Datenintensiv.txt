@@ -15,7 +15,7 @@
         Wenn man nun einen Array an Werten hat, kann man diese Werte mit Map bearbeiten. Jedoch werden diese nicht geändert, 
 
         sondern die veränderte Form wird in das Ergebnis übernommen. => Immutability.
-        ```
+        ```javascript
             const values = ["  Potato ", " Apple   ", " Watermelon   "];
 
             const result = values.map((x) => x.trim());
@@ -67,12 +67,12 @@
 
         Um dies besser zu veranschaulichen, wird den Daten eine weitere Metrik gegeben.
         
-        ```
-        const values = [("Potatoes","vegetarian"),("Steak","carnivore"),("Apple","vegetarian")];
+        ```javascript
+            const values = [("Potatoes","vegetarian"),("Steak","carnivore"),("Apple","vegetarian")];
 
-        const vegies = values.filter((x) => x[1]==="vegetarian);
+            const vegies = values.filter((x) => x[1]==="vegetarian);
 
-        => vegies = [("Potatoes","vegetarian"), ("Apple","vegetarian")]
+            => vegies = [("Potatoes","vegetarian"), ("Apple","vegetarian")]
         
         ```
 
@@ -88,10 +88,10 @@
         
         *Beispiel:*
 
-        ```
-        const values = [1, 2, 3, 4];
+        ```javascript
+            const values = [1, 2, 3, 4];
 
-        const result = values.reduce((acc, curr) => acc + curr, initialVal);
+            const result = values.reduce((acc, curr) => acc + curr, initialVal);
 
-        => resulte = 10;
+            => resulte = 10;
         ```
