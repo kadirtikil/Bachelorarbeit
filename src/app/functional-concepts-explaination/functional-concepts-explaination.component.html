@@ -1,10 +1,10 @@
 <div class="root">
     <h1 *ngIf="hasHeadline">{{headline}}</h1>
-    <markdown ngPreserveWhitespaces *ngIf="isLoaded && hasMarkdown">
+    <markdown  *ngIf="isLoaded && hasMarkdown">
         {{description}}
     </markdown>
     <div class="application" *ngIf="hasApplication">
-        <app-concurrency *ngIf="headline=='Concurrency'"></app-concurrency>
+        <app-concurrency *ngIf="headline=='Nebenläufigkeit'"></app-concurrency>
         <app-dataintensive *ngIf="headline=='Datenintensiv'"></app-dataintensive>
         <app-vert-rech *ngIf="headline=='Message Passing'"></app-vert-rech>
     </div>

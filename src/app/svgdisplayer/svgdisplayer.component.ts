@@ -39,11 +39,13 @@ export class SvgdisplayerComponent implements OnInit {
 
     const svgLinkMapper :{[key: string]: string} = {
       "Pure Functions": "purefunction",
-      "Higher Order Functions": "higherorderfunction",
+      "Higher Order Functions": "hofsvg",
       "Immutability": "immutable",
       "Monads": "monads",
       "Pattern Matching": "patternmatching",
       "Funktionskomposition": "funccomp",
+      "Rekursion": "recursionsvg",
+      "Lazy Evaluation": "lazyevalsvg"
     }
 
     this.headline = this.data.headline;

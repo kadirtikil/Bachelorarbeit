@@ -64,11 +64,11 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Currying": "cr",
         "Persistente Datenstrukturen": "ps",
         "Compilerbau": "cb",
+        "Nebenläufigkeit": "conc",
       };
 
       const mappedOptionswithApplications: {[key: string]: string} = {
         "Verteiltes Rechnen": "ds",
-        "Concurrency": "conc",
         "Datenintensiv": "di",
         "Message Passing": "mp",
       }
