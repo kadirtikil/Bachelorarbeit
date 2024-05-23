@@ -125,7 +125,16 @@ namespace EGFuPSBackendCS.Controllers
         {
             return Ok(new { message = getTestSvg("Funktionskomposition") });
         }
-
+        [HttpGet("recursionsvg")]
+        public IActionResult getRecSvg()
+        {
+            return Ok(new { message = getTestSvg("recursionsvg") });
+        }
+        [HttpGet("lazyevalsvg")]
+        public IActionResult getLazySvg()
+        {
+            return Ok(new {message=getTestSvg("lazyevalsvg")});
+        }
 
 
         // Everything Markdown related is below. dont want to create a specific controller for this. maybe should but whatever fuck you

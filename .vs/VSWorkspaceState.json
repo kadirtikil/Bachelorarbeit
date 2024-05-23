@@ -3,6 +3,7 @@
     "",
     "\\bin",
     "\\Controllers",
+    "\\Controllers\\svgs",
     "\\Controllers\\text",
     "\\Properties"
   ],

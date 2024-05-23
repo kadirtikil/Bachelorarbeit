@@ -1,4 +1,3 @@
-# Higher Order Functions
 **Higher Order Functions** sind Funktionen, die entweder eine oder mehrere Funktion/en als Argument entgegen nehmen und/oder eine Funktion zurückgeben.
 
 Nicht weit weg von **HOF** befinden sich die **First Class Functions**. 
