@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EGFuPSBackendCS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ade4c9a861f0584efd744fee587060c23c3ecda0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a116b3fe96328aece951efa981bcba496e883a2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("EGFuPSBackendCS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EGFuPSBackendCS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

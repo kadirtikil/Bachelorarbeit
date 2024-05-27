@@ -18,7 +18,6 @@ Das verteilte Rechnen wird durch die Anwendung funktionaler Programmierkonzepte 
     
 -   **Lazy Evaluation**: Diese Technik verzögert die Berechnung bis zu dem Zeitpunkt, an dem das Ergebnis benötigt wird. Dies kann die Effizienz in verteilten Systemen verbessern, indem unnötige Berechnungen vermieden werden.
     
--   **Referentielle Transparenz**: Dies bedeutet, dass ein Ausdruck durch seinen Wert ersetzt werden kann, ohne das Programmverhalten zu ändern. Dies erleichtert das Verständnis und die Fehlerbehebung von Programmen in verteilten Systemen.
     
 
 Durch die Kombination dieser Konzepte können verteilte Systeme effizienter, sicherer und einfacher zu warten gemacht werden, was die Entwicklung skalierbarer und robuster Anwendungen unterstützt.

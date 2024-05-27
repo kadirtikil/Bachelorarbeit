@@ -5,8 +5,9 @@ Siehe unten bei *Pipeline*.
 
 Beispiel:
 Gegeben sind die Funktionen f, g und h. 
-Die Funktionen sind nicht assoziativ zueinander und müssen alphabetisch auf das Datum **x** ausgeführt werden.
-Das hätte diese Reihenfolge zur folge:
+Die Funktionen sind nicht assoziativ zueinander und muessen alphabetisch auf das Datum **x** ausgefuehrt werden.
+Das haette diese Reihenfolge zur folge:
 ```javascript
 	h( g( f( x ) ) )
 ```
+

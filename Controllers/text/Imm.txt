@@ -1,4 +1,3 @@
-# Immutability
 **Immutability** bedeutet, dass etwas sich nicht ändert, auch nicht über einen gegebenen Zeitraum hinaus.
 
 In der Funktionalen Programmierung bezieht sich dies auf die **Unveränderbarkeit** eines Datums nach ihrer Initialisierung. Dadurch sind Seiteneffekte nicht möglich. D.h. ein Wert kann sich während der Laufzeit nicht unerwartet ändern.
