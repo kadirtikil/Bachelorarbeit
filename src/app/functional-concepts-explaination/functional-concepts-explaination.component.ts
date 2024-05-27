@@ -65,6 +65,9 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Persistente Datenstrukturen": "ps",
         "Compilerbau": "cb",
         "Nebenläufigkeit": "conc",
+        "Higher Order Functions": "hof",
+        "Lazy Evaluation": "le",
+        "Rekursion": "rk",
       };
 
       const mappedOptionswithApplications: {[key: string]: string} = {
@@ -75,13 +78,10 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
 
       const mappedOptionsWithSvg :{[key: string]: string} = {
         "Pure Functions": "pf",
-        "Higher Order Functions": "hof",
         "Immutability": "imm",
         "Monads": "mon",
         "Pattern Matching": "pm",
         "Funktionskomposition": "fk",
-        "Lazy Evaluation": "le",
-        "Rekursion": "rk",
       }
 
       const headlineString = this.headline.toString();
