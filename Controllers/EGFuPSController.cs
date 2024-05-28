@@ -276,13 +276,13 @@ namespace EGFuPSBackendCS.Controllers
         // POST reqs for updating entries.
 
         // Files that are able to be changes
-        /*Dictionary TxtFiles = new Dictionary<string, string>
+        private readonly Dictionary<string, string> TxtFiles = new Dictionary<string, string>
         {
             {"Wartbar-, Erweiterbar- und Testbarkeit", "Wet"},
             {"Performance", "Performance"},
             {"Currying", "Currying"},
             {"Persistente Datenstrukturen", "PersistenteDatenstrukturen"},
-            {"Nebenläufigkeit", "Nebenlaufigkeit"},
+            {"Nebenläufigkeit", "Nebenläufigkeit"},
             {"Higher Order Functions", "Hof"},
             {"Lazy Evaluation", "LazyEval"},
             {"Rekursion", "Rekursion"},
@@ -294,27 +294,40 @@ namespace EGFuPSBackendCS.Controllers
             {"Monads", "Mon"},
             {"Pattern Matching", "PatternMatching"},
             {"Funktionskomposition", "Funktionskomposition"},
-        };*/
+            {"test", "test"},
+        };
 
 
         [HttpPut("markdownedit/{txtFile}")]
-        public IActionResult updateMarkdown([FromRoute] string txtFile)
+        public IActionResult updateMarkdown([FromRoute] string txtFile, [FromBody] string markdownNew)
         {
-            Console.Write(txtFile);
+            Console.WriteLine(txtFile);
             // find the txt to change
-            /*if(TxtFiles.TryGetValue(txtFiles, out string value))
+            if(TxtFiles.TryGetValue(txtFile, out string value))
             {
-                Console.Write(value);
+
+                Console.WriteLine(markdownNew);
+                
+                // The File
+                string theFile = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\" + value + ".txt";
+
+                // Delete the File
+                System.IO.File.Delete(theFile);
+
+                using (StreamWriter writer = new StreamWriter(theFile))
+                {
+                    writer.Write(markdownNew);
+                    writer.Flush(); // Ensure that any buffered data is written to the file
+                }
+
+                // return confirmation 
+                return Ok(new { message = "File updated cuh." });
+
             }
             else
             {
-                Console.Write("Couldnt find value");
-            }*/
-
-            // update the txt to change
-
-            // return message 
-            return Ok(new { message = "Markdown has been Updated in the backend!" });
+                return NotFound(new { message = "File not founn." });
+            }
         }
 
     }
