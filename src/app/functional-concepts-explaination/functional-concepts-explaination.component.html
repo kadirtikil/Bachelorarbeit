@@ -4,9 +4,6 @@
         {{description}}
     </markdown>
     <div class="application" *ngIf="hasApplication">
-        <app-concurrency *ngIf="headline=='Nebenläufigkeit'"></app-concurrency>
-        <app-dataintensive *ngIf="headline=='Datenintensiv'"></app-dataintensive>
-        <app-vert-rech *ngIf="headline=='Message Passing'"></app-vert-rech>
     </div>
     <div class="hasSvg" *ngIf="hasSvg">
         <button (click)="openSVG(headline)">Open Map</button>

@@ -9,9 +9,7 @@ import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
 
 import { NgxPanZoomModule } from 'ngx-panzoom';
 
-import { ConcurrencyComponent } from '../concurrency/concurrency.component';
 import { DataintensiveComponent } from '../dataintensive/dataintensive.component';
-import { VertRechComponent } from '../vert-rech/vert-rech.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { SvgdisplayerComponent } from '../svgdisplayer/svgdisplayer.component';
@@ -21,8 +19,8 @@ import { EditMarkdownComponent } from '../edit-markdown/edit-markdown.component'
 @Component({
   selector: 'app-functional-concepts-explaination',
   standalone: true,
-  imports: [MarkdownModule, MatDialogModule, CommonModule, ConcurrencyComponent, DataintensiveComponent, 
-    VertRechComponent, NgxPanZoomModule, SvgdisplayerComponent, EditMarkdownComponent,
+  imports: [MarkdownModule, MatDialogModule, CommonModule, DataintensiveComponent, 
+    NgxPanZoomModule, SvgdisplayerComponent, EditMarkdownComponent,
   ],
   templateUrl: './functional-concepts-explaination.component.html',
   styleUrl: './functional-concepts-explaination.component.scss'
