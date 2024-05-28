@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\EGFuPSController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\EGFuPSController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Funktionskomposition.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\text\\Funktionskomposition.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Imm.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\text\\Imm.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\EGFuPSController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\EGFuPSController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Compilerbau.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -38,7 +38,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Datenintensiv.txt",
               "DocumentMoniker": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Datenintensiv.txt",
               "RelativeDocumentMoniker": "Controllers\\text\\Datenintensiv.txt",
@@ -46,12 +46,11 @@
               "RelativeToolTip": "Controllers\\text\\Datenintensiv.txt",
               "ViewState": "AQIAAEcAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-05-27T10:05:44.818Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-27T10:05:44.818Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "VerteiltesRechnen.txt",
               "DocumentMoniker": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\VerteiltesRechnen.txt",
               "RelativeDocumentMoniker": "Controllers\\text\\VerteiltesRechnen.txt",
@@ -59,12 +58,11 @@
               "RelativeToolTip": "Controllers\\text\\VerteiltesRechnen.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-05-27T10:04:08.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-27T10:04:08.676Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Imm.txt",
               "DocumentMoniker": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Imm.txt",
               "RelativeDocumentMoniker": "Controllers\\text\\Imm.txt",
@@ -72,12 +70,24 @@
               "RelativeToolTip": "Controllers\\text\\Imm.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-05-27T09:58:54.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-27T09:58:54.92Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EGFuPSController.cs",
+              "DocumentMoniker": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\EGFuPSController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EGFuPSController.cs",
+              "ToolTip": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\EGFuPSController.cs",
+              "RelativeToolTip": "Controllers\\EGFuPSController.cs",
+              "ViewState": "AQIAAA8BAAAAAAAAAAAAACUBAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T09:36:02.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Funktionskomposition.txt",
               "DocumentMoniker": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\Funktionskomposition.txt",
               "RelativeDocumentMoniker": "Controllers\\text\\Funktionskomposition.txt",
@@ -99,19 +109,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-05-23T08:10:19.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EGFuPSController.cs",
-              "DocumentMoniker": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\EGFuPSController.cs",
-              "RelativeDocumentMoniker": "Controllers\\EGFuPSController.cs",
-              "ToolTip": "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\EGFuPSController.cs",
-              "RelativeToolTip": "Controllers\\EGFuPSController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAgwEYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T09:36:02.276Z",
-              "EditorCaption": ""
             }
           ]
         }

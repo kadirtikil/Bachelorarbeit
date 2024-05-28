@@ -1,5 +1,5 @@
-Datenstrukturen, die nach ihrer Initialisierung nicht mehr veraenderbar sind, sind persistent. 
+Datenstrukturen, die nach ihrer Initialisierung nicht mehr veraenderbar sind, nennt man persistent.
 
-D.h., dass kein Prozess eine Manipulation an dem Datum vornehmen darf oder kann.
+Das bedeutet, dass kein Prozess die Daten manipulieren darf oder kann.
 
-Dieses Konzept - wie in Immutability erklaert - ist massgebend in der Nebenlaeufigkeit, sowie der parallelen Rechnung und der Vorhersagbarkeit und Nachvollziehbarkeit des Codes. (Siehe Pure Functions)
+Dieses Konzept - wie in der Unveraenderlichkeit (Immutability) erklaert - ist massgebend fuer Nebenlaeufigkeit, paralleles Rechnen sowie die Vorhersagbarkeit und Nachvollziehbarkeit des Codes. (Siehe Pure Functions)

@@ -78,6 +78,7 @@ namespace EGFuPSBackendCS.Controllers
         }
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Everything SVG related is down here
         public string getTestSvg(string svgFileName)
         {
@@ -137,6 +138,7 @@ namespace EGFuPSBackendCS.Controllers
         }
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Everything Markdown related is below. dont want to create a specific controller for this. maybe should but whatever fuck you
 
         // Function to get the txt file. dont want any choas goin on around here.
@@ -268,10 +270,57 @@ namespace EGFuPSBackendCS.Controllers
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Compilerbau")) });
         }
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // POST reqs for updating entries.
+
+        // Files that are able to be changes
+        /*Dictionary TxtFiles = new Dictionary<string, string>
+        {
+            {"Wartbar-, Erweiterbar- und Testbarkeit", "Wet"},
+            {"Performance", "Performance"},
+            {"Currying", "Currying"},
+            {"Persistente Datenstrukturen", "PersistenteDatenstrukturen"},
+            {"Nebenläufigkeit", "Nebenlaufigkeit"},
+            {"Higher Order Functions", "Hof"},
+            {"Lazy Evaluation", "LazyEval"},
+            {"Rekursion", "Rekursion"},
+            {"Verteiltes Rechnen", "VerteiltesRechnen" },
+            {"Datenintensiv", "Datenintensiv"},
+            {"Message Passing", "MessagePassing"},
+            {"Pure Functions", "PureFunctions"},
+            {"Immutability", "Imm"},
+            {"Monads", "Mon"},
+            {"Pattern Matching", "PatternMatching"},
+            {"Funktionskomposition", "Funktionskomposition"},
+        };*/
+
+
+        [HttpPut("markdownedit/{txtFile}")]
+        public IActionResult updateMarkdown([FromRoute] string txtFile)
+        {
+            Console.Write(txtFile);
+            // find the txt to change
+            /*if(TxtFiles.TryGetValue(txtFiles, out string value))
+            {
+                Console.Write(value);
+            }
+            else
+            {
+                Console.Write("Couldnt find value");
+            }*/
+
+            // update the txt to change
+
+            // return message 
+            return Ok(new { message = "Markdown has been Updated in the backend!" });
+        }
+
     }
 
 
-
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Classes for the functions
 
     // Task objects for task scheduling
