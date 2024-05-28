@@ -3,10 +3,9 @@
     "",
     "\\bin",
     "\\Controllers",
-    "\\Controllers\\svgs",
     "\\Controllers\\text",
     "\\Properties"
   ],
-  "SelectedNode": "\\Controllers\\text\\test.txt",
+  "SelectedNode": "\\Controllers\\text",
   "PreviewInSolutionExplorer": false
 }

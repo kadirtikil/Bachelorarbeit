@@ -82,7 +82,7 @@ namespace EGFuPSBackendCS.Controllers
         // Everything SVG related is down here
         public string getTestSvg(string svgFileName)
         {
-            string path = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\svgs\\" + svgFileName + ".svg";
+            string path = "C:\\Users\\kadir\\Desktop\\Bachelorarbeit\\backend\\Controllers\\svgs\\" + svgFileName + ".svg";
 
 
             string svgContent = System.IO.File.ReadAllText(path);
@@ -146,7 +146,7 @@ namespace EGFuPSBackendCS.Controllers
         public String getTxtFile(string txtFileName)
         {
             //string path1 = "C:\\Users\\kadir\\source\\repos\\EGFuPSBackendCS\\EGFuPSBackendCS\\Controllers\\text\\" + txtFileName + ".txt";
-            string path = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\" + txtFileName + ".txt";
+            string path = "C:\\Users\\kadir\\Desktop\\Bachelorarbeit\\backend\\Controllers\\text\\" + txtFileName + ".txt";
 
 
             try
@@ -299,36 +299,45 @@ namespace EGFuPSBackendCS.Controllers
 
 
         [HttpPut("markdownedit/{txtFile}")]
-        public IActionResult updateMarkdown([FromRoute] string txtFile, [FromBody] string markdownNew)
+        public async Task<IActionResult> UpdateMarkdown([FromRoute] string txtFile)
         {
-            Console.WriteLine(txtFile);
-            // find the txt to change
-            if(TxtFiles.TryGetValue(txtFile, out string value))
+            // Find the txt to change
+            if (TxtFiles.TryGetValue(txtFile, out string value))
             {
-
-                Console.WriteLine(markdownNew);
-                
-                // The File
-                string theFile = "C:\\Users\\kadir\\Desktop\\Backend\\Bachelorarbeit\\Controllers\\text\\" + value + ".txt";
-
-                // Delete the File
-                System.IO.File.Delete(theFile);
-
-                using (StreamWriter writer = new StreamWriter(theFile))
+                using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
                 {
-                    writer.Write(markdownNew);
-                    writer.Flush(); // Ensure that any buffered data is written to the file
+                    string requestBody = await reader.ReadToEndAsync();
+
+                    // Parse the request body as a JSON object
+                    var jsonObject = JObject.Parse(requestBody);
+
+                    // Extract specific properties from the JSON object
+                    string markdownNew = jsonObject["markdown"]?.ToString();
+                    Console.WriteLine(markdownNew); 
+                                        
+                    // The File
+                    string theFile = "C:\\Users\\kadir\\Desktop\\Bachelorarbeit\\backend\\Controllers\\text\\" + value + ".txt";
+
+                    // Delete the File
+                    System.IO.File.Delete(theFile);
+
+                    // Create the new file
+                    using (StreamWriter writer = new StreamWriter(theFile))
+                    {
+                        writer.Write(markdownNew);
+                        writer.Flush(); // Ensure that any buffered data is written to the file
+                    }
+
+                    // Return confirmation 
+                    return Ok(new { message = "Markdown updated successfully." });
                 }
-
-                // return confirmation 
-                return Ok(new { message = "File updated cuh." });
-
             }
             else
             {
-                return NotFound(new { message = "File not founn." });
+                return NotFound(new { message = "File not found." });
             }
         }
+
 
     }
 
