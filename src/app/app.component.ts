@@ -5,16 +5,16 @@ import { MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
 
-import { CdkDrag, CdkDragMove, CdkDragHandle } from '@angular/cdk/drag-drop';
-
-import * as d3 from 'd3';
+import { CdkDrag } from '@angular/cdk/drag-drop';
 
 import { FunctionalConceptsExplainationComponent } from './functional-concepts-explaination/functional-concepts-explaination.component';
+
+import { EditMarkdownComponent } from './edit-markdown/edit-markdown.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, CdkDrag ],
+  imports: [CommonModule, MatDialogModule, CdkDrag, EditMarkdownComponent, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

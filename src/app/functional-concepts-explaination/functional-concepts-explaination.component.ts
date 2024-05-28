@@ -7,7 +7,7 @@ import { MarkdownModule } from 'ngx-markdown';
 
 import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
 
-import { NgxPanZoomModule, PanZoomConfig, PanZoomAPI, PanZoomModel, PanZoomConfigOptions } from 'ngx-panzoom';
+import { NgxPanZoomModule } from 'ngx-panzoom';
 
 import { ConcurrencyComponent } from '../concurrency/concurrency.component';
 import { DataintensiveComponent } from '../dataintensive/dataintensive.component';
@@ -15,12 +15,14 @@ import { VertRechComponent } from '../vert-rech/vert-rech.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { SvgdisplayerComponent } from '../svgdisplayer/svgdisplayer.component';
+import { EditMarkdownComponent } from '../edit-markdown/edit-markdown.component';
+
 
 @Component({
   selector: 'app-functional-concepts-explaination',
   standalone: true,
   imports: [MarkdownModule, MatDialogModule, CommonModule, ConcurrencyComponent, DataintensiveComponent, 
-    VertRechComponent, NgxPanZoomModule, SvgdisplayerComponent, 
+    VertRechComponent, NgxPanZoomModule, SvgdisplayerComponent, EditMarkdownComponent,
   ],
   templateUrl: './functional-concepts-explaination.component.html',
   styleUrl: './functional-concepts-explaination.component.scss'
@@ -137,6 +139,16 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     this.dialog.open(SvgdisplayerComponent, dialogConfig);
   }
   
+  openEditor(markdown: any) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {markdown: markdown};
+    dialogConfig.maxHeight = "90vh";
+    dialogConfig.maxWidth = "90vh";
+    dialogConfig.minHeight = "45vh";  
+    dialogConfig.minWidth = "45vw";
+    this.dialog.open(EditMarkdownComponent, dialogConfig);
+  }
   
 }
   
