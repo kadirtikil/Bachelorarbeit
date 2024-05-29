@@ -55,6 +55,8 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
 
   async ngOnInit() {
     try {
+
+
       this.headline = this.data.headline;
 
       const mappedOptions: { [key: string]: string } = {
@@ -140,7 +142,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
   openEditor(markdown: any) {
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.data = {markdown: markdown};
+    dialogConfig.data = {headline: this.headline, markdown: markdown};
     dialogConfig.maxHeight = "90vh";
     dialogConfig.maxWidth = "90vh";
     dialogConfig.minHeight = "45vh";  
