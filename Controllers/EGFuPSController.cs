@@ -270,6 +270,26 @@ namespace EGFuPSBackendCS.Controllers
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Compilerbau")) });
         }
+        [HttpGet("wa")]
+        public IActionResult markdownWa()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("WhatsApp")) });
+        }
+        [HttpGet("lic")]
+        public IActionResult markdownLic()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("LiChess")) });
+        }
+        [HttpGet("aps")]
+        public IActionResult markdownAps()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("ApacheSpark")) });
+        }
+        [HttpGet("apk")]
+        public IActionResult markdownApk()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("ApacheKafka")) });
+        }
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -295,10 +315,14 @@ namespace EGFuPSBackendCS.Controllers
             {"Pattern Matching", "PatternMatching"},
             {"Funktionskomposition", "Funktionskomposition"},
             {"test", "test"},
+            {"WhatsApp", "WhatsApp"},
+            {"LiChess", "LiChess"},
+            {"Apache Kafka", "ApacheKafka"},
+            {"Apache Spark", "ApacheSpark"},
         };
 
 
-        [HttpPut("markdownedit/{txtFile}")]
+        [HttpPut("editmarkdown/{txtFile}")]
         public async Task<IActionResult> UpdateMarkdown([FromRoute] string txtFile)
         {
             // Find the txt to change
