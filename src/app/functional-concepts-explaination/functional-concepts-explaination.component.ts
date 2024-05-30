@@ -70,6 +70,10 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Higher Order Functions": "hof",
         "Lazy Evaluation": "le",
         "Rekursion": "rk",
+        "WhatsApp": "wa",
+        "LiChess": "lic",
+        "Apache Spark": "aps",
+        "Apache Kafka": "apk",
       };
 
       const mappedOptionswithApplications: {[key: string]: string} = {

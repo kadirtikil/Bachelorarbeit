@@ -1,5 +1,6 @@
 <div class="root">
     <h1 *ngIf="hasHeadline">{{headline}}</h1>
+    <button (click)="openEditor(description)">Edit Markdown</button>
     <markdown  *ngIf="isLoaded && hasMarkdown">
         {{description}}
     </markdown>
@@ -8,5 +9,4 @@
     <div class="hasSvg" *ngIf="hasSvg">
         <button (click)="openSVG(headline)">Open Map</button>
     </div>
-    <button (click)="openEditor(description)">Edit Markdown</button>
 </div>
