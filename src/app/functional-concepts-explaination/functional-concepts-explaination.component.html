@@ -1,9 +1,12 @@
 <div class="root">
+    <span class="loader" *ngIf="!isLoaded"></span>
     <h1 *ngIf="hasHeadline">{{headline}}</h1>
-    <button (click)="openEditor(description)">Edit Markdown</button>
-    <markdown  *ngIf="isLoaded && hasMarkdown">
-        {{description}}
-    </markdown>
+    <div class="temp" *ngIf="isLoaded && hasMarkdown" >
+        <markdown  *ngIf="isLoaded && hasMarkdown">
+            {{description}}
+        </markdown>
+        <button (click)="openEditor(description)">Edit Markdown</button>
+    </div>
     <div class="application" *ngIf="hasApplication">
     </div>
     <div class="hasSvg" *ngIf="hasSvg">

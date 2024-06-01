@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule, } from '@angular/material/dialog';
 
 import { UpdateMarkdownServiceService } from '../update-markdown-service.service';
+import { DialogRef } from '@angular/cdk/dialog';
 
 
 @Component({
@@ -13,10 +14,11 @@ import { UpdateMarkdownServiceService } from '../update-markdown-service.service
 })
 export class EditMarkdownComponent implements OnInit{
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private udpateMarkdown: UpdateMarkdownServiceService) {}
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private udpateMarkdown: UpdateMarkdownServiceService,
+    private dialogRef: DialogRef) {}
 
   // for fetching data passed into component per Mat dialog data 
-  headline: string = "";
+  headline: string = "";  
   markdownInside: string = "";
 
   // to get current updated value inside the textarea
@@ -37,5 +39,6 @@ export class EditMarkdownComponent implements OnInit{
 
     await this.udpateMarkdown.updateMarkdown(this.headline, newMarkdown).toPromise();
 
+    this.dialogRef.close();
   }
 }

@@ -151,7 +151,13 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     dialogConfig.maxWidth = "90vh";
     dialogConfig.minHeight = "45vh";  
     dialogConfig.minWidth = "45vw";
-    this.dialog.open(EditMarkdownComponent, dialogConfig);
+    const dialogRef = this.dialog.open(EditMarkdownComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.isLoaded = false;
+      this.ngOnInit();
+    })
+
   }
   
 }

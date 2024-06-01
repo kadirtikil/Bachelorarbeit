@@ -29,6 +29,8 @@ export class AppComponent {
   dialogConfig: MatDialogConfig = {
     maxHeight: '90vh',
     maxWidth: '90vh',
+    minHeight: '75px',
+    minWidth: '75px',
   };
 
   // Dialoge
