@@ -290,6 +290,16 @@ namespace EGFuPSBackendCS.Controllers
         {
             return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("ApacheKafka")) });
         }
+        [HttpGet("ggl")]
+        public IActionResult markdownGgl()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("Google")) });
+        }
+        [HttpGet("plfr")]
+        public IActionResult markdownPlfr()
+        {
+            return Ok(new { message = JsonConvert.SerializeObject(getTxtFile("PlayFramework")) });
+        }
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -319,6 +329,8 @@ namespace EGFuPSBackendCS.Controllers
             {"LiChess", "LiChess"},
             {"Apache Kafka", "ApacheKafka"},
             {"Apache Spark", "ApacheSpark"},
+            {"Google", "Google"},
+            {"Playframework", "PlayFramework"},
         };
 
 

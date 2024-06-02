@@ -1,23 +1,87 @@
-Erlang is often touted as an excellent choice for the backend of chat applications due to several of its unique features and design principles. Here’s a detailed explanation of why Erlang is considered superior for such use cases, along with some references and documentation pointers:
+Das Backend von WhatsApp ist mit Erlang aufgebaut. Erlang kann durch das Message Passing Fehlertoleranz, Nebenläufigkeit und bessere Performance bieten. Für eine Real-Time-Chat-App daher perfekt.
 
-Key Advantages of Erlang for Chat Applications
-Concurrency Model:
+## Wie funktioniert das Message Passing in Erlang?
 
-Lightweight Processes: Erlang's concurrency model is based on lightweight processes that are managed by the Erlang runtime system, not the OS. This makes it possible to run millions of concurrent processes, which is ideal for chat applications where each user or chat session can be a separate process.
-Message Passing: Processes communicate through message passing, which is a natural fit for chat systems where messages need to be passed between users and rooms.
-Fault Tolerance:
+### Nebenläufigkeit
+Erlang kann durch seine leichten Prozesse, welche vom Erlang Runtime gesteuert werden, statt vom Betriebssystem.
 
-Supervision Trees: Erlang’s "let it crash" philosophy and supervision trees enable building resilient systems. If a process handling a chat session crashes, it can be quickly restarted without affecting the rest of the system.
-Hot Code Swapping: Erlang allows for hot code swapping, meaning you can update the chat application without downtime, which is crucial for continuous availability.
-Scalability:
+Dadurch kann Erlang die große Menge an Prozessen besser nebenläufig verwalten.
 
-Distributed Nature: Erlang is designed for distributed computing. It can easily scale across multiple nodes, which is essential for handling large-scale chat applications.
-Load Balancing: Built-in mechanisms for load balancing help manage the load efficiently across servers.
-Real-time Capabilities:
 
-Low Latency: Erlang's runtime system is optimized for low-latency message passing, which is critical for real-time communication in chat applications.
-Soft Real-Time: Erlang provides soft real-time capabilities, which ensure timely responses in a chat application.
-Functional Programming Paradigm:
 
-Immutability: Functional programming languages like Erlang use immutable data, which reduces side effects and makes it easier to reason about concurrent code.
-Pattern Matching: Pattern matching in Erlang simplifies the implementation of message handling and state management.
+#### Prozesse in der Nebenläufigkeit
+
+In Erlang ist jeder Prozess eine eigene Einheit mit ihrem eigenen Speicher, sodass kein geteilter Speicher zwischen Prozessen existiert. 
+Da diese Prozesse leicht sind, kann das System diese in Millionen verwalten.
+
+#### Beispiel:
+```javascript
+% Spawn multiple processes to perform concurrent tasks
+spawn(fun() -> perform_task(1) end),
+spawn(fun() -> perform_task(2) end),
+spawn(fun() -> perform_task(3) end).
+
+perform_task(TaskNumber) ->
+    io:format("Performing task ~p~n", [TaskNumber]),
+    %% Simulate a task by sleeping for a random duration
+    timer:sleep(random:uniform(1000)),
+    io:format("Task ~p completed~n", [TaskNumber]).
+
+```
+
+## Message Passing
+Prozesse in Erlang kommunizieren durch Message Passing. Dieser Ansatz vermeidet geteilten Speicher, was Nebenläufigkeit fördert und race conditions vermeidet.
+
+#### Beispiel:
+```javascript
+% Define a process that receives messages
+Pid = spawn(fun() -> message_loop() end).
+
+% Send a message to the process
+Pid ! {hello, "world"}.
+
+message_loop() ->
+    receive
+        {hello, Msg} -> io:format("Received message: ~s~n", [Msg]),
+                         message_loop()
+    end.
+
+```
+
+In diesem Beispiel wird ein Prozess erstellt, um Nachrichten zu behandeln. Der 'receive' Block wartet auf eine Nachricht und verarbeitet diese, wenn sie ankommt.
+
+## Fehlertoleranz
+Die Philosophie "let it crash" spielt hier eine große Rolle. Es wird erwartet, dass Prozesse fehlerhaft sind und vom Supervisor wieder gestartet werden. Dieser Ansatz verbessert das Error-Handling und macht das System robuster.
+
+#### Beispiel:
+```javascript
+% Worker process that may crash
+-module(worker).
+-export([start/0, loop/0]).
+
+start() ->
+    spawn(fun loop/0).
+
+loop() ->
+    receive
+        {crash, Reason} -> exit(Reason);
+        {message, Msg} -> io:format("Message: ~s~n", [Msg]),
+                          loop()
+    end.
+
+% Supervisor process that restarts the worker
+-module(supervisor).
+-export([start/0, supervise/1]).
+
+start() ->
+    spawn(fun supervise/1, [worker:start()]).
+
+supervise(WorkerPid) ->
+    monitor(process, WorkerPid),
+    receive
+        {'DOWN', _Ref, process, _Pid, _Reason} ->
+            io:format("Worker crashed, restarting...~n"),
+            supervise(worker:start())
+    end.
+
+```
