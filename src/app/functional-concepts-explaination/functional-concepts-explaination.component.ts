@@ -74,6 +74,8 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "LiChess": "lic",
         "Apache Spark": "aps",
         "Apache Kafka": "apk",
+        "Playframework": "plfr",
+        "Google": "ggl",
       };
 
       const mappedOptionswithApplications: {[key: string]: string} = {
