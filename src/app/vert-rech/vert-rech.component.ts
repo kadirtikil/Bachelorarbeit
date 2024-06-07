@@ -6,7 +6,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { MarkdownModule } from 'ngx-markdown';
 
-import { DistributedSystemsService } from '../distributed-systems.service';
 
 @Component({
   selector: 'app-vert-rech',
@@ -38,7 +37,7 @@ export class VertRechComponent {
   }
 
   // Submitting the Data
-  constructor(private http: DistributedSystemsService) {}
+  constructor() {}
 
   // Value to later display in the frontend
   // ...

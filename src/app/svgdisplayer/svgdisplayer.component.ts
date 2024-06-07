@@ -2,7 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
+import { FetchSvgFromBackendService } from '../service/fetch-svg-from-backend.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
@@ -16,7 +16,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class SvgdisplayerComponent implements OnInit {
 
   // Constructor
-  constructor(private retrieveFile: RetrieveFileForMDService, private sanitizer: DomSanitizer, 
+  constructor(private retrieveFile: FetchSvgFromBackendService, private sanitizer: DomSanitizer, 
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
 
@@ -45,7 +45,8 @@ export class SvgdisplayerComponent implements OnInit {
       "Pattern Matching": "patternmatching",
       "Funktionskomposition": "funccomp",
       "Rekursion": "recursionsvg",
-      "Lazy Evaluation": "lazyevalsvg"
+      "Lazy Evaluation": "lazyevalsvg",
+      "LiChess": "chessbitboardsvg",
     }
 
     this.headline = this.data.headline;
@@ -57,7 +58,9 @@ export class SvgdisplayerComponent implements OnInit {
         const link = svgLinkMapper[headlineAsString as keyof typeof svgLinkMapper];
         
 
-        this.temp1 = await this.retrieveFile.getTextFile(link).toPromise();
+        this.temp1 = await this.retrieveFile.getSvgFile(link).toPromise();
+        //this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
+
         this.svgPicture = this.sanitizer.bypassSecurityTrustHtml(this.temp1.message);
 
         this.svgRendered = true;

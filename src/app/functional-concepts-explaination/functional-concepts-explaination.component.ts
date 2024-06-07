@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 
 import { MarkdownModule } from 'ngx-markdown';
 
-import { RetrieveFileForMDService } from '../retrieve-file-for-md.service';
+import { RetrieveFileForMDService } from '../service/retrieve-file-for-md.service';
 
 import { NgxPanZoomModule } from 'ngx-panzoom';
 
-import { DataintensiveComponent } from '../dataintensive/dataintensive.component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { SvgdisplayerComponent } from '../svgdisplayer/svgdisplayer.component';
@@ -19,7 +18,7 @@ import { EditMarkdownComponent } from '../edit-markdown/edit-markdown.component'
 @Component({
   selector: 'app-functional-concepts-explaination',
   standalone: true,
-  imports: [MarkdownModule, MatDialogModule, CommonModule, DataintensiveComponent, 
+  imports: [MarkdownModule, MatDialogModule, CommonModule, 
     NgxPanZoomModule, SvgdisplayerComponent, EditMarkdownComponent,
   ],
   templateUrl: './functional-concepts-explaination.component.html',
@@ -55,8 +54,6 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
 
   async ngOnInit() {
     try {
-
-
       this.headline = this.data.headline;
 
       const mappedOptions: { [key: string]: string } = {
@@ -66,38 +63,37 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         "Currying": "cr",
         "Persistente Datenstrukturen": "ps",
         "Compilerbau": "cb",
-        "Nebenläufigkeit": "conc",
+        "Concurrency": "conc",
         "Higher Order Functions": "hof",
         "Lazy Evaluation": "le",
         "Rekursion": "rk",
         "WhatsApp": "wa",
-        "LiChess": "lic",
         "Apache Spark": "aps",
         "Apache Kafka": "apk",
         "Playframework": "plfr",
         "Google": "ggl",
+        "Arten des Pattern-Matchings": "apm"
       };
 
-      const mappedOptionswithApplications: {[key: string]: string} = {
-        "Verteiltes Rechnen": "ds",
-        "Datenintensiv": "di",
-        "Message Passing": "mp",
-      }
+      const mappedOptionswithApplications: string[] = [
+        "Verteiltes Rechnen",
+        "Datenintensiv",
+        "Message Passing",
+      ]
 
-      const mappedOptionsWithSvg :{[key: string]: string} = {
-        "Pure Functions": "pf",
-        "Immutability": "imm",
-        "Monads": "mon",
-        "Pattern Matching": "pm",
-        "Funktionskomposition": "fk",
-      }
+      const mappedOptionsWithSvg : string[] = [
+        "Pure Functions",
+        "Immutability",
+        "Pattern Matching",
+        "Funktionskomposition",
+        "LiChess",
+      ]
 
       const headlineString = this.headline.toString();
       
       if(this.headline in mappedOptions){
-        const fileId = mappedOptions[headlineString as keyof typeof mappedOptions];
-        this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
-        this.description = JSON.parse(this.temp["message"]);
+        this.temp = await this.retrieveFile.getTextFile(headlineString).toPromise();
+        this.description = (this.temp.message);
         // Setting the booleans. everything is loadet here time to render.
         // No application. only markdown here.
         this.hasHeadline= true;
@@ -105,19 +101,17 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         this.isLoaded=true;
 
       } else if(this.headline in mappedOptionswithApplications){
-        const fileId = mappedOptionswithApplications[headlineString as keyof typeof mappedOptionswithApplications];
-        this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
-        this.description = JSON.parse(this.temp["message"]);
-
+        this.temp = await this.retrieveFile.getTextFile(headlineString).toPromise();
+        //this.description = JSON.parse(this.temp.message);
+        this.description = (this.temp.message);
         // Setting the booleans. with applications this time.
         this.hasHeadline = true;
         this.hasMarkdown = true;
         this.isLoaded = true;
         this.hasApplication = true;
       } else if(this.headline in mappedOptionsWithSvg) {
-        const fileId = mappedOptionsWithSvg[headlineString as keyof typeof mappedOptionsWithSvg];
-        this.temp = await this.retrieveFile.getTextFile(fileId).toPromise();
-        this.description = JSON.parse(this.temp["message"]);
+        this.temp = await this.retrieveFile.getTextFile(headlineString).toPromise();
+        this.description = (this.temp.message);
 
 
         // later pass in the svg here and handle the behaviour
