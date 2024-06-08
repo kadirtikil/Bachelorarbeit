@@ -1,6 +1,8 @@
 <div class="root">
-    <form action="">
-        <input type="text" placeholder="chifre1">
-        <input type="text" placeholder="chifre2">
+    <form action="" [formGroup]="authEditForm" (ngSubmit)="openEditor()">
+        <input type="text" placeholder="chifre1" formControlName="chifre1">
+        <input type="text" placeholder="chifre2" formControlName="chifre2">
+        <button type="submit">submit</button>
+        <input type="button" mat-dialog-close value="close">
     </form>
 </div>

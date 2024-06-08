@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogConfig, } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef, } from '@angular/material/dialog';
 
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +13,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { SvgdisplayerComponent } from '../svgdisplayer/svgdisplayer.component';
 import { EditMarkdownComponent } from '../edit-markdown/edit-markdown.component';
+
+import { AuthForMarkdownEditComponent } from '../auth-for-markdown-edit/auth-for-markdown-edit.component';
 
 
 @Component({
@@ -49,31 +51,31 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
   temp1: any = "";
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private retrieveFile: RetrieveFileForMDService,
-  private sanitizer: DomSanitizer, private http: HttpClient, private dialog: MatDialog) {}
+  private sanitizer: DomSanitizer, private http: HttpClient, private dialog: MatDialog, public thisdialogRef: MatDialogRef<FunctionalConceptsExplainationComponent>) {}
 
 
   async ngOnInit() {
     try {
       this.headline = this.data.headline;
 
-      const mappedOptions: { [key: string]: string } = {
-        "Sicherheitsanforderungen": "sec",
-        "Wartbar-, Erweiterbar- und Testbarkeit": "wet",
-        "Performance": "perf",
-        "Currying": "cr",
-        "Persistente Datenstrukturen": "ps",
-        "Compilerbau": "cb",
-        "Concurrency": "conc",
-        "Higher Order Functions": "hof",
-        "Lazy Evaluation": "le",
-        "Rekursion": "rk",
-        "WhatsApp": "wa",
-        "Apache Spark": "aps",
-        "Apache Kafka": "apk",
-        "Playframework": "plfr",
-        "Google": "ggl",
-        "Arten des Pattern-Matchings": "apm"
-      };
+      const mappedOptions: string[] = [
+        "Sicherheitsanforderungen",
+        "Wartbar-, Erweiterbar- und Testbarkeit",
+        "Performance",
+        "Currying",
+        "Persistente Datenstrukturen",
+        "Compilerbau",
+        "Concurrency",
+        "Higher Order Functions",
+        "Lazy Evaluation",
+        "Rekursion",
+        "WhatsApp",
+        "Apache Spark",
+        "Apache Kafka",
+        "Playframework",
+        "Google",
+        "Arten des Pattern-Matchings"
+      ]
 
       const mappedOptionswithApplications: string[] = [
         "Verteiltes Rechnen",
@@ -91,7 +93,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
 
       const headlineString = this.headline.toString();
       
-      if(this.headline in mappedOptions){
+      if(mappedOptions.includes(headlineString)){
         this.temp = await this.retrieveFile.getTextFile(headlineString).toPromise();
         this.description = (this.temp.message);
         // Setting the booleans. everything is loadet here time to render.
@@ -100,7 +102,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         this.hasMarkdown=true;
         this.isLoaded=true;
 
-      } else if(this.headline in mappedOptionswithApplications){
+      } else if(mappedOptionswithApplications.includes(headlineString)){
         this.temp = await this.retrieveFile.getTextFile(headlineString).toPromise();
         //this.description = JSON.parse(this.temp.message);
         this.description = (this.temp.message);
@@ -109,7 +111,7 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
         this.hasMarkdown = true;
         this.isLoaded = true;
         this.hasApplication = true;
-      } else if(this.headline in mappedOptionsWithSvg) {
+      } else if(mappedOptionsWithSvg.includes(headlineString)) {
         this.temp = await this.retrieveFile.getTextFile(headlineString).toPromise();
         this.description = (this.temp.message);
 
@@ -139,23 +141,27 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     this.dialog.open(SvgdisplayerComponent, dialogConfig);
   }
   
-  openEditor(markdown: any) {
+  openAuth(markdown: any){
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.data = {headline: this.headline, markdown: markdown};
-    dialogConfig.maxHeight = "90vh";
-    dialogConfig.maxWidth = "90vh";
-    dialogConfig.minHeight = "45vh";  
-    dialogConfig.minWidth = "45vw";
-    const dialogRef = this.dialog.open(EditMarkdownComponent, dialogConfig);
+    dialogConfig.maxHeight = "20vh";
+    dialogConfig.maxWidth = "20vh";
+    dialogConfig.minHeight = "10vw";  
+    dialogConfig.minWidth = "10vw";
+    const dialogRef = this.dialog.open(AuthForMarkdownEditComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(() => {
+    dialogRef.afterClosed().subscribe(async () => {
       this.isLoaded = false;
-      this.ngOnInit();
-    })
+      
+      this.temp = await this.retrieveFile.getTextFile(this.headline.toString()).toPromise();
+      this.description = this.temp.message;
 
+      this.isLoaded = true;
+      
+    })
   }
-  
+
 }
   
 

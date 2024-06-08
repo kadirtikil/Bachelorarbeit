@@ -1,22 +1,24 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, } from '@angular/material/dialog';
+import { Component, Inject, OnInit, } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef, } from '@angular/material/dialog';
 
 import { UpdateMarkdownServiceService } from '../service/update-markdown-service.service';
-import { DialogRef } from '@angular/cdk/dialog';
 
-import { AuthForMarkdownEditComponent } from '../auth-for-markdown-edit/auth-for-markdown-edit.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-markdown',
   standalone: true,
-  imports: [MatDialogModule, ],
+  imports: [MatDialogModule, CommonModule],
   templateUrl: './edit-markdown.component.html',
   styleUrl: './edit-markdown.component.scss'
 })
 export class EditMarkdownComponent implements OnInit{
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any, private udpateMarkdown: UpdateMarkdownServiceService,
-    private dialogRef: DialogRef, private dialog: MatDialog) {}
+    public thisdialogRef: MatDialogRef<EditMarkdownComponent>) {}
+
+
+
 
   // for fetching data passed into component per Mat dialog data 
   headline: string = "";  
@@ -33,25 +35,15 @@ export class EditMarkdownComponent implements OnInit{
   }
 
   async submitChanges(){
-    console.log("clicked submit in edit markdown");
-
     var temp = document.getElementById("newMarkdown") as HTMLTextAreaElement;
     var newMarkdown = temp.value;
 
-    // open another dialog box to confirm changes.
-    // subscribe to it. then check with if else.+
+    const requestBody = {headline: this.data.headline, markdown: newMarkdown, chifre1: this.data.chifre1, chifre2: this.data.chifre2}
 
-    this.dialog.open(AuthForMarkdownEditComponent);
+    // Any Data necessary is here. time to setup the backend now.
+    await this.udpateMarkdown.updateMarkdown(this.headline, requestBody).toPromise();
 
-    if(true){
+    this.thisdialogRef.close();
 
-    }
-    else {
-      await this.udpateMarkdown.updateMarkdown(this.headline, newMarkdown).toPromise();
-    }
-
-    
-
-    this.dialogRef.close();
   }
 }
