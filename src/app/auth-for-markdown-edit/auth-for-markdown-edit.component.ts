@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup,FormControl, Validators } from '@angular/forms';
-import { MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef, MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import { EditMarkdownComponent } from '../edit-markdown/edit-markdown.component';
 
 @Component({
   selector: 'app-auth-for-markdown-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, MatDialogModule],
   templateUrl: './auth-for-markdown-edit.component.html',
   styleUrl: './auth-for-markdown-edit.component.scss'
 })

@@ -5,6 +5,7 @@ import { UpdateMarkdownServiceService } from '../service/update-markdown-service
 
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-edit-markdown',
   standalone: true,
@@ -37,6 +38,8 @@ export class EditMarkdownComponent implements OnInit{
   async submitChanges(){
     var temp = document.getElementById("newMarkdown") as HTMLTextAreaElement;
     var newMarkdown = temp.value;
+
+    
 
     const requestBody = {headline: this.data.headline, markdown: newMarkdown, chifre1: this.data.chifre1, chifre2: this.data.chifre2}
 
