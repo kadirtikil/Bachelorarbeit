@@ -38,15 +38,14 @@ export class SvgdisplayerComponent implements OnInit {
   async ngOnInit() {
 
     const svgLinkMapper :{[key: string]: string} = {
-      "Pure Functions": "purefunction",
-      "Higher Order Functions": "hofsvg",
-      "Immutability": "immutable",
-      "Monads": "monads",
-      "Pattern Matching": "patternmatching",
-      "Funktionskomposition": "funccomp",
+      "Pure Functions": "Pure Functions",
+      "Immutability": "Immutability",
+      "Monads": "Monaden",
+      "Pattern Matching": "Pattern Matching",
+      "Funktionskomposition": "Funktionskomposition",
       "Rekursion": "recursionsvg",
       "Lazy Evaluation": "lazyevalsvg",
-      "LiChess": "chessbitboardsvg",
+      "LiChess": "chessBitBoard",
     }
 
     this.headline = this.data.headline;
