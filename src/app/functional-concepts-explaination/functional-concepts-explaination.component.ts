@@ -145,10 +145,10 @@ export class FunctionalConceptsExplainationComponent implements OnInit{
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.data = {headline: this.headline, markdown: markdown};
-    dialogConfig.maxHeight = "20vh";
-    dialogConfig.maxWidth = "20vh";
-    dialogConfig.minHeight = "10vw";  
-    dialogConfig.minWidth = "10vw";
+    dialogConfig.maxHeight = "30vh";
+    dialogConfig.maxWidth = "25vw";
+    dialogConfig.minHeight = "23vh";  
+    dialogConfig.minWidth = "20vw";
     const dialogRef = this.dialog.open(AuthForMarkdownEditComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(async () => {
