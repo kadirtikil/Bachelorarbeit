@@ -8,6 +8,8 @@
 
     height: 20vh;
     width: 20vw;
+
+    color: black;
 }
 
 form {
@@ -15,4 +17,11 @@ form {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    padding: 10px;
+}
+
+input {
+    border-radius: 10px;
+    height: 2vh;
 }

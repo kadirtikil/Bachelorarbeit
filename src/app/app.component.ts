@@ -11,6 +11,8 @@ import { FunctionalConceptsExplainationComponent } from './functional-concepts-e
 
 import { EditMarkdownComponent } from './edit-markdown/edit-markdown.component';
 
+import { AuthForMarkdownEditComponent } from './auth-for-markdown-edit/auth-for-markdown-edit.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -38,6 +40,15 @@ export class AppComponent {
     event?.preventDefault();
     this.dialogConfig.data={headline:headline};
     this.dialog.open(FunctionalConceptsExplainationComponent, this.dialogConfig);
+  }
+
+  openTestComp() {
+    event?.preventDefault();
+    this.dialogConfig={
+      minHeight: '12vh',
+      minWidth: '10vw',
+    }
+    this.dialog.open(AuthForMarkdownEditComponent, this.dialogConfig)
   }
   /////////////////////////////////////////////////////////////////////////////////
   // not finished funcs line

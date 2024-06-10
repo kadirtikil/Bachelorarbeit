@@ -5,6 +5,8 @@ import { MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef, MatDialog, MatDialogMod
 
 import { EditMarkdownComponent } from '../edit-markdown/edit-markdown.component';
 
+import { CheckAuthForMarkdownEditService } from '../service/check-auth-for-markdown-edit.service';
+
 @Component({
   selector: 'app-auth-for-markdown-edit',
   standalone: true,
@@ -13,7 +15,8 @@ import { EditMarkdownComponent } from '../edit-markdown/edit-markdown.component'
   styleUrl: './auth-for-markdown-edit.component.scss'
 })
 export class AuthForMarkdownEditComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,  public dialog: MatDialog, public thisdialogRef: MatDialogRef<AuthForMarkdownEditComponent>){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,  public dialog: MatDialog, public thisdialogRef: MatDialogRef<AuthForMarkdownEditComponent>,
+    private checkAuth: CheckAuthForMarkdownEditService){}
 
 
 
@@ -23,22 +26,36 @@ export class AuthForMarkdownEditComponent {
   })
 
   openEditor() {
-    const dialogConfig = new MatDialogConfig();
+    
+    // use ! for not null assertion!
+    this.checkAuth.checkAuthCreds(this.authEditForm.value.chifre1!.toString(), this.authEditForm.value.chifre2!.toString()).subscribe(
+      (success) => {
+        if(success){
+          const dialogConfig = new MatDialogConfig();
 
-    console.log(this,this.authEditForm)
+          console.log(this,this.authEditForm)
 
-    dialogConfig.data = {headline: this.data.headline, markdown: this.data.markdown, chifre1: this.authEditForm.value.chifre1, chifre2: this.authEditForm.value.chifre2};
-    dialogConfig.maxHeight = "90vh";
-    dialogConfig.maxWidth = "90vh";
-    dialogConfig.minHeight = "45vh";  
-    dialogConfig.minWidth = "45vw";
-    const dialogRef = this.dialog.open(EditMarkdownComponent, dialogConfig);
+          dialogConfig.data = {headline: this.data.headline, markdown: this.data.markdown, chifre1: this.authEditForm.value.chifre1, chifre2: this.authEditForm.value.chifre2};
+          dialogConfig.maxHeight = "90vh";
+          dialogConfig.maxWidth = "90vh";
+          dialogConfig.minHeight = "45vh";  
+          dialogConfig.minWidth = "45vw";
+          const dialogRef = this.dialog.open(EditMarkdownComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(() => 
-    {
-      this.thisdialogRef.close();
-    })
+          dialogRef.afterClosed().subscribe(() => 
+          {
+            this.thisdialogRef.close();
+          }) 
+        } else {
+          console.log("not okay");
+          this.thisdialogRef.close();
+        }
+      }
+    )
+      
 
+
+  
   }
 
 

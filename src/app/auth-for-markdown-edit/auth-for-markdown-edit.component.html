@@ -1,7 +1,9 @@
 <div class="root">
     <form action="" [formGroup]="authEditForm" (ngSubmit)="openEditor()">
-        <input type="text" placeholder="chiffre1" formControlName="chifre1">
-        <input type="text" placeholder="chiffre2" formControlName="chifre2">
+        <h1 id="headline">Authentifikation</h1>
+        <p id="explanation">Bitte die Chiffren eingeben. Sollten diese falsch sein, können keine Veränderungen vollzogen werden.</p>
+        <input id="chiffre" type="text" placeholder="chiffre1" formControlName="chifre1">
+        <input id="chiffre" type="text" placeholder="chiffre2" formControlName="chifre2">
         <button type="submit">submit</button>
         <input type="button" mat-dialog-close="true" value="close">
     </form>
